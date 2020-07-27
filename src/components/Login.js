@@ -1,5 +1,4 @@
 import React from 'react'
-import '../styles/Login.css'
 import {connect} from 'react-redux'
 import {updateLoginForm} from '../actions/loginForm'
 import {login} from '../actions/authUser.js'
@@ -33,7 +32,7 @@ const Login = ({loginFormData, updateLoginForm,login}) => {
     } else {
       pw.type = 'password';
       pwBtn.textContent = 'Show password';
-      pwBtn.setAttribute('aria-label','Show password as plain text. ' + 'Warning: this will display your password on the screen')
+      pwBtn.setAttribute('aria-label','Show password as plain text. Warning: this will display your password on the screen')
     }
   }
   return (
