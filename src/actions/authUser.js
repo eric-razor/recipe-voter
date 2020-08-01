@@ -69,7 +69,7 @@ export const signup = credentials => {
 
 export const getCurrentUser = () => {
   return dispatch => {
-    return fetch("http://localhost:3000/users/get_current_user", {
+    return fetch("/get_current_user", {
       method:"GET",
       credentials: "include",
       headers: {

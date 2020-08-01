@@ -5,6 +5,8 @@ import {getCurrentUser} from './actions/authUser'
 import Home from './components/Home'
 import Login from './components/Login'
 import Signup from './components/Signup'
+import CookieCardMaker from './components/CookieCardMaker'
+// import CookieCardListContainer from './containers/CookieCardListContainer'
 import {
   BrowserRouter as Router,
   Route,
@@ -30,12 +32,21 @@ class App extends Component {
                 <li>
                   <Link to="/signup">Sign Up</Link>
                 </li>
+                <li>
+                  <Link to="/recipecards"> Cookie Cardz </Link>
+                </li>
+                <li>
+                  <Link to="/new-card"> Create cookie card  </Link>
+                </li>
               </ul>
             </nav>
 
             <Switch>
               <Route path="/signup">
                 <Signup />
+              </Route>
+              <Route path="/new-card">
+                <CookieCardMaker/>
               </Route>
               <Route path="/">
                 <Home />
