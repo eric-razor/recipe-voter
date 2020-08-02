@@ -25,12 +25,12 @@ const Signup = ({signupFormData, updateSignupForm, signup}) => {
     <div className="Signup">
       <form name="Signup-form" onSubmit={handleSubmit}>
 
-        <section>
-        <label htmlFor="username">Username</label>
-        <div className="input-box">
-        <input id="username" type="text" name="username" required value={signupFormData.username} onChange={handleInputChange} />
-        </div>
-        </section>
+      <section>
+      <label htmlFor="username">Username</label>
+      <div className="input-box">
+      <input id="username" type="text" name="username" required value={signupFormData.username} onChange={handleInputChange} />
+      </div>
+      </section>
 
         <section>
         <label htmlFor="email">Email</label>

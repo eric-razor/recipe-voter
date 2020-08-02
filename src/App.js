@@ -16,6 +16,7 @@ import {
 
 class App extends Component {
 
+
   componentDidMount(){
     this.props.getCurrentUser()
 
@@ -28,7 +29,10 @@ class App extends Component {
               <ul>
                 <li>
                   <Link to="/">Home</Link>
-                  </li>
+                </li>
+                <li>
+                  <Link to="/login">Log In </Link>
+                </li>
                 <li>
                   <Link to="/signup">Sign Up</Link>
                 </li>
@@ -42,6 +46,9 @@ class App extends Component {
             </nav>
 
             <Switch>
+              <Route path="/login">
+                <Login />
+              </Route>
               <Route path="/signup">
                 <Signup />
               </Route>
