@@ -1,3 +1,13 @@
-.App {
-  text-align: center;
+:root {
+  font-size: 16px;
+  font-family: herculanum;
 }
+
+* {
+  text-align: left;
+  background-color: #8B8989;
+}
+
+/* body, input, a {
+  color: white;
+} */

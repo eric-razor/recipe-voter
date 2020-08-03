@@ -1,6 +1,6 @@
 const initialState = {
-  email:"person@example.com",
-  password:"password"
+  email:"",
+  password:""
 }
 
 export default (state = initialState, action) => {
