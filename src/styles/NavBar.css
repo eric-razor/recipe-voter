@@ -1,0 +1,8 @@
+.Nav-Route-List {
+  display: flex;
+  flex-direction: row;
+}
+
+a.active {
+  color: black;
+}

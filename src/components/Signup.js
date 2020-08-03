@@ -20,30 +20,29 @@ const Signup = ({signupFormData, updateSignupForm, signup}) => {
     signup(signupFormData)
   }
 
-
   return (
     <div className="Signup">
       <form name="Signup-form" onSubmit={handleSubmit}>
 
       <section>
-      <label htmlFor="username">Username</label>
-      <div className="input-box">
-      <input id="username" type="text" name="username" required value={signupFormData.username} onChange={handleInputChange} />
-      </div>
+        <label htmlFor="username">Username</label>
+          <div className="input-box">
+            <input id="username" type="text" name="username" required value={signupFormData.username} onChange={handleInputChange} />
+          </div>
       </section>
 
         <section>
-        <label htmlFor="email">Email</label>
-        <div className="input-box">
-        <input id="email" type="text"  name="email" required value={signupFormData.email} onChange={handleInputChange} />
-        </div>
+          <label htmlFor="email">Email</label>
+            <div className="input-box">
+              <input id="email" type="text"  name="email" required value={signupFormData.email} onChange={handleInputChange} />
+            </div>
         </section>
 
         <section>
-        <label htmlFor="password"> Password</label>
-        <div className="input-box">
-        <input id="password"  type="password" name="password" required value={signupFormData.password} onChange={handleInputChange} />
-        </div>
+          <label htmlFor="password"> Password</label>
+            <div className="input-box">
+              <input id="password"  type="password" name="password" required value={signupFormData.password} onChange={handleInputChange} />
+            </div>
         </section>
 
 
@@ -56,10 +55,8 @@ const Signup = ({signupFormData, updateSignupForm, signup}) => {
 const mapState = state => {
   return {
     signupFormData: state.signupForm
-
   }
 }
-
 
 export default connect(mapState, {updateSignupForm, signup})(Signup)
 

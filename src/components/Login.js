@@ -1,8 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {updateLoginForm} from '../actions/loginForm'
-import {login} from '../actions/authUser.js'
-
+import {login} from '../actions/authUser'
 
 const Login = ({loginFormData, updateLoginForm,login}) => {
 
@@ -61,9 +60,7 @@ const Login = ({loginFormData, updateLoginForm,login}) => {
 const mapState = state => {
   return {
     loginFormData: state.loginForm
-
   }
 }
-
 
 export default connect(mapState, {updateLoginForm, login})(Login)
