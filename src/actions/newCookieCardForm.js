@@ -1,9 +1,9 @@
 // sync
-
-export const updateCookieCardForm = (name, value) => {
+export const updateCookieCardForm = (name,value) => {
+  const cookieCardData = {name, value}
   return {
     type: "UPDATE_NEW_COOKIE_FORM",
-    formData: {name, value}
+    cookieCardData
   }
 }
 

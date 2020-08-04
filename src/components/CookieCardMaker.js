@@ -3,7 +3,7 @@ import {connect} from 'react-redux'
 import { updateCookieCardForm} from '../actions/newCookieCardForm'
 
 
-const CookieCardMaker = ({recipe_name, recipe_ingredients,recipe_steps, history}) => {
+const CookieCardMaker = ({recipe_name, recipe_ingredients,recipe_steps, updateCookieCardForm,history}) => {
 
   const handleChange = (e) =>{
     const {name, value} = e.target
@@ -20,28 +20,52 @@ const CookieCardMaker = ({recipe_name, recipe_ingredients,recipe_steps, history}
         <section>
           <label htmlFor="recipe-name">Recipe name:</label>
             <div className="recipe-name-input-box">
-              <input id="recipe-name" name="recipe-name" type="text" value={recipe_name} onChange={handleChange} required/>
+              <input
+                id="recipe-name"
+                name="recipe_name"
+                type="text"
+                value={recipe_name}
+                onChange={handleChange}
+                required
+              />
             </div>
         </section>
 
         <section>
           <label htmlFor="recipe-ingredients"> Recipe ingredients:</label>
             <div className="recipe-ingredients-input-box">
-              <textarea id="recipe-ingredients" rows="5" cols="33" name="recipe-ingredients" value={recipe_ingredients} onChange={handleChange} required />
+              <textarea
+                id="recipe-ingredients"
+                rows="5"
+                cols="33"
+                name="recipe_ingredients"
+                value={recipe_ingredients}
+                onChange={handleChange}
+                required
+              />
             </div>
         </section>
 
         <section>
           <label htmlFor="recipe-steps">Recipe steps:</label>
             <div className="recipe-steps-input-box">
-              <textarea id="recipe-steps" rows="5" cols="33" name="recipe-steps" value={recipe_steps} onChange={handleChange} required />
+              <textarea
+                id="recipe-steps"
+                rows="5"
+                cols="33"
+                name="recipe_steps"
+                value={recipe_steps}
+                onChange={handleChange}
+                required />
             </div>
         </section>
 
-        <input
-          value="Create Card! :)"
-          type="submit"
-        />
+        <section>
+              <input
+                value="Create Card! :)"
+                type="submit"
+              />
+        </section>
       </form>
     </div>
   )
