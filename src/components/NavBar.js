@@ -3,7 +3,8 @@ import {
   BrowserRouter as Router,
   Route,
   Switch,
-  Link
+  Link,
+  NavLink
 } from "react-router-dom";
 import '../styles/NavBar.css'
 import {connect} from 'react-redux'
@@ -20,19 +21,19 @@ const NavBar = () => {
           <nav>
             <ul className="Nav-Route-List">
               <li>
-                <Link to="/">Home</Link>
+                <NavLink to="/">Home</NavLink>
               </li>
               <li>
-                <Link to="/login">Log In </Link>
+                <NavLink to="/login">Log In </NavLink>
               </li>
               <li>
-                <Link to="/signup">Sign Up</Link>
+                <NavLink to="/signup">Sign Up</NavLink>
               </li>
               <li>
-                <Link to="/cookiecards"> Cookie Cardz </Link>
+                <NavLink to="/cookiecards"> Cookie Cardz </NavLink>
               </li>
               <li>
-                <Link to="/cookiecards/new"> Create cookie card  </Link>
+                <NavLink to="/cookiecards/new"> Create cookie card  </NavLink>
               </li>
             </ul>
           </nav>

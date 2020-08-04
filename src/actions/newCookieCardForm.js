@@ -7,4 +7,10 @@ export const updateCookieCardForm = (name, value) => {
   }
 }
 
+export const clearCookiCardForm = () => {
+  return {
+    type: "CLEAR_NEW_COOKIE_FORM"
+  }
+}
+
 // async

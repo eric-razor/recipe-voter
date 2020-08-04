@@ -1,8 +1,12 @@
 .Nav-Route-List {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
 }
 
-a.active {
-  color: black;
+a:hover {
+  color:red;
+}
+
+a:active{
+  color: orange;
 }
