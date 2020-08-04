@@ -38,6 +38,7 @@ export const login = credentials => {
 export const logout = () => {
   return dispatch => {
     dispatch(clearCurrentUser())
+    // TODO: clear cookie cardz
     return fetch("/logout", {
       method: "DELETE",
       credentials: "include"
