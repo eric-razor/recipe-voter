@@ -47,13 +47,23 @@ export const getCookieCardz = () => {
 
 export const postCookieCard = cookieCardObj => {
   return dispatch => {
+
+    const cookieCardData = {
+      cookiecard: {
+        recipe_name: cookieCardObj.recipe_name,
+        recipe_steps: cookieCardObj.recipe_steps,
+        recipe_ingredients: cookieCardObj.recipe_ingredients,
+        user_id: cookieCardObj.userId
+      }
+    }
+
     return fetch('/cookiecardz', {
       credentials:"include",
       method:"POST",
       headers: {
         "Content-Type":"application/json"
       },
-      body: JSON.stringify(cookieCardObj)
+      body: JSON.stringify(cookieCardData )
     })
     .then(r => r.json())
     .then(console.log)

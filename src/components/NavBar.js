@@ -14,7 +14,7 @@ import Signup from './Signup'
 import CookieCardMaker from './CookieCardMaker'
 
 const NavBar = () => {
-  return(
+  return (
     <div className="NavBar">
       <Router>
         <div className="Nav-Routes">

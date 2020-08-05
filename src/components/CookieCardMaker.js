@@ -4,7 +4,7 @@ import { updateCookieCardForm} from '../actions/newCookieCardForm'
 import {postCookieCard} from '../actions/cookieCardz'
 
 
-const CookieCardMaker = ({newCookieCard, updateCookieCardForm,postCookieCard, history}) => {
+const CookieCardMaker = ({newCookieCard, updateCookieCardForm,postCookieCard, userId,history}) => {
   const {recipe_name, recipe_steps, recipe_ingredients} = newCookieCard
 
   const handleChange = (e) =>{
@@ -18,11 +18,10 @@ const CookieCardMaker = ({newCookieCard, updateCookieCardForm,postCookieCard, hi
 
   }
   return (
-    <div>
+    <div className="cookie-card">
       <form onSubmit={handleSubmit}>
         <section>
           <label htmlFor="recipe_name">Recipe name:</label>
-            <div className="recipe-name-input-box">
               <input
                 id="recipe_name"
                 name="recipe_name"
@@ -31,12 +30,10 @@ const CookieCardMaker = ({newCookieCard, updateCookieCardForm,postCookieCard, hi
                 onChange={handleChange}
                 required
               />
-            </div>
         </section>
 
         <section>
           <label htmlFor="recipe_ingredients"> Recipe ingredients:</label>
-            <div className="recipe-ingredients-input-box">
               <textarea
                 id="recipe_ingredients"
                 rows="5"
@@ -46,12 +43,10 @@ const CookieCardMaker = ({newCookieCard, updateCookieCardForm,postCookieCard, hi
                 onChange={handleChange}
                 required
               />
-            </div>
         </section>
 
         <section>
           <label htmlFor="recipe_steps">Recipe steps:</label>
-            <div className="recipe-steps-input-box">
               <textarea
                 id="recipe_steps"
                 rows="5"
@@ -60,7 +55,6 @@ const CookieCardMaker = ({newCookieCard, updateCookieCardForm,postCookieCard, hi
                 value={recipe_steps}
                 onChange={handleChange}
                 required />
-            </div>
         </section>
 
         <section>
@@ -79,5 +73,5 @@ const mapState = state => {
     newCookieCard: state.cookiecard
   }
 }
-
+// flexbox for sections
 export default connect(mapState,{updateCookieCardForm, postCookieCard} )(CookieCardMaker);

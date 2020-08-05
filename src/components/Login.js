@@ -1,4 +1,5 @@
 import React from 'react'
+import '../styles/Login.css'
 import {connect} from 'react-redux'
 import {updateLoginForm} from '../actions/loginForm'
 import {login} from '../actions/authUser'
@@ -23,9 +24,8 @@ const Login = ({loginFormData, updateLoginForm,login}) => {
     <div className="Login">
       <form name="Login-form" onSubmit={handleSubmit}>
 
-        <section>
+        <section className="input-section">
           <label htmlFor="email">Email</label>
-            <div className="input-box">
               <input
                 id="email"
                 value={loginFormData.email}
@@ -34,12 +34,10 @@ const Login = ({loginFormData, updateLoginForm,login}) => {
                 type="text"
                 required
               />
-            </div>
         </section>
 
-        <section>
+        <section className="input-section">
           <label htmlFor="password"> Password</label>
-            <div className="input-box">
               <input
                 id="password"
                 type="password"
@@ -48,7 +46,6 @@ const Login = ({loginFormData, updateLoginForm,login}) => {
                 required
                 onChange={handleInputChange}
               />
-            </div>
         </section>
 
         <input value="Log in" type="submit"/>
@@ -62,5 +59,5 @@ const mapState = state => {
     loginFormData: state.loginForm
   }
 }
-
+// flex direction for sections
 export default connect(mapState, {updateLoginForm, login})(Login)
