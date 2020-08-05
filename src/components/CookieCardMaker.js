@@ -1,27 +1,30 @@
 import React from 'react';
 import {connect} from 'react-redux'
 import { updateCookieCardForm} from '../actions/newCookieCardForm'
+import {postCookieCard} from '../actions/cookieCardz'
 
 
-const CookieCardMaker = ({recipe_name, recipe_ingredients,recipe_steps, updateCookieCardForm,history}) => {
+const CookieCardMaker = ({newCookieCard, updateCookieCardForm,postCookieCard, history}) => {
+  const {recipe_name, recipe_steps, recipe_ingredients} = newCookieCard
 
   const handleChange = (e) =>{
     const {name, value} = e.target
     updateCookieCardForm(name,value)
-
   }
 
   const handleSubmit = (e) =>{
     e.preventDefault()
+    postCookieCard(newCookieCard)
+
   }
   return (
     <div>
       <form onSubmit={handleSubmit}>
         <section>
-          <label htmlFor="recipe-name">Recipe name:</label>
+          <label htmlFor="recipe_name">Recipe name:</label>
             <div className="recipe-name-input-box">
               <input
-                id="recipe-name"
+                id="recipe_name"
                 name="recipe_name"
                 type="text"
                 value={recipe_name}
@@ -32,10 +35,10 @@ const CookieCardMaker = ({recipe_name, recipe_ingredients,recipe_steps, updateCo
         </section>
 
         <section>
-          <label htmlFor="recipe-ingredients"> Recipe ingredients:</label>
+          <label htmlFor="recipe_ingredients"> Recipe ingredients:</label>
             <div className="recipe-ingredients-input-box">
               <textarea
-                id="recipe-ingredients"
+                id="recipe_ingredients"
                 rows="5"
                 cols="33"
                 name="recipe_ingredients"
@@ -47,10 +50,10 @@ const CookieCardMaker = ({recipe_name, recipe_ingredients,recipe_steps, updateCo
         </section>
 
         <section>
-          <label htmlFor="recipe-steps">Recipe steps:</label>
+          <label htmlFor="recipe_steps">Recipe steps:</label>
             <div className="recipe-steps-input-box">
               <textarea
-                id="recipe-steps"
+                id="recipe_steps"
                 rows="5"
                 cols="33"
                 name="recipe_steps"
@@ -72,12 +75,9 @@ const CookieCardMaker = ({recipe_name, recipe_ingredients,recipe_steps, updateCo
 }
 
 const mapState = state => {
-  const {recipe_name, recipe_steps, recipe_ingredients } = state.cookiecard
   return{
-    recipe_name,
-    recipe_ingredients,
-    recipe_steps
+    newCookieCard: state.cookiecard
   }
 }
 
-export default connect(mapState,{updateCookieCardForm} )(CookieCardMaker);
+export default connect(mapState,{updateCookieCardForm, postCookieCard} )(CookieCardMaker);

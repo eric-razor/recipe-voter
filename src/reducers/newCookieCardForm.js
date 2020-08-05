@@ -5,7 +5,6 @@ const initialState = {
 }
 
 export default (state = initialState, action) => {
-  console.log(state);
   switch (action.type) {
     case "UPDATE_NEW_COOKIE_FORM":
       return {
