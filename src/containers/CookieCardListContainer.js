@@ -6,7 +6,7 @@ class CookieCardListContainer extends Component{
     super()
 
     this.state = {
-      cardz: []
+      cookiecardz: []
     }
   }
 
@@ -14,13 +14,13 @@ class CookieCardListContainer extends Component{
     fetch('/cookiecardz')
     .then(resp => resp.json())
     .then(cardData => this.setState({
-      cardz: cardData.cardz
+      cookiecardz: cardData.cookiecardz
     }))
   }
 
   render(){
     return(
-      <CookieCardList books={this.state.books} />
+      <CookieCardList cookiecardz={this.state.cookiecardz} />
     )
   }
 }

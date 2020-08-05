@@ -2,9 +2,11 @@ const initialState = []
 
 export default (state=initialState, action) => {
   switch (action.type) {
-    case "SET_COOKIE_CARDZ":
+    case "GET_COOKIE_CARDZ":
       return action.cookiecardz
-    case "CLEAR_COOKIE_CARDZ":
+    case "CREATE_COOKIE_CARD":
+      return state.cookiecardz.concat(action.cookiecardz)
+    case "CLEAR_COOKIE_CARD":
       return []
     default:
       return state

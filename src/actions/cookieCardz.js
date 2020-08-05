@@ -2,14 +2,21 @@
 
 export const getCardz = cookiecardz => {
   return {
-    type: "SET_COOKIE_CARDZ",
+    type: "GET_COOKIE_CARDZ",
     cookiecardz
   }
 }
 
-export const clearCardz = () => {
+export const clearCard = () => {
   return {
-    type: "CLEAR_COOKIECARDZ"
+    type: "CLEAR_COOKIE_CARD"
+  }
+}
+
+export const addCard = cookiecard => {
+  return {
+    type: "CREATE_COOKIE_CARD",
+    cookiecard
   }
 }
 
@@ -22,7 +29,7 @@ export const getCookieCardz = () => {
       credentials: "include",
       method: "GET",
       headers: {
-        "Content-Type":"application/json"
+        "Content-Type": "application/json"
       },
     })
     .then(r => r.json())
@@ -34,6 +41,22 @@ export const getCookieCardz = () => {
         dispatch(getCardz(resp.data))
       }
     })
+    .catch(console.log)
+  }
+}
+
+export const postCookieCard = cookieCardObj => {
+  return dispatch => {
+    return fetch('/cookiecardz', {
+      credentials:"include",
+      method:"POST",
+      headers: {
+        "Content-Type":"application/json"
+      },
+      body: JSON.stringify(cookieCardObj)
+    })
+    .then(r => r.json())
+    .then(console.log)
     .catch(console.log)
   }
 }
