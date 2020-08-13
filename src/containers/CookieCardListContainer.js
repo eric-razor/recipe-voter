@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import CookieCardList from './components/CookieCardList'
+import CookieCardList from '../components/CookieCardList'
 
 class CookieCardListContainer extends Component{
   constructor() {

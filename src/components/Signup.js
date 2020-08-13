@@ -25,9 +25,9 @@ const Signup = ({signupFormData, updateSignupForm, signup}) => {
       <form name="Signup-form" onSubmit={handleSubmit}>
 
       <section>
-        <label htmlFor="username">Username</label>
+        <label htmlFor="name">Name</label>
           <div className="input-box">
-            <input id="username" type="text" name="username" required value={signupFormData.username} onChange={handleInputChange} />
+            <input id="name" type="text" name="name" required value={signupFormData.name} onChange={handleInputChange} />
           </div>
       </section>
 
