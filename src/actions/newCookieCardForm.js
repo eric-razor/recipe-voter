@@ -7,7 +7,7 @@ export const updateCookieCardForm = (name,value) => {
   }
 }
 
-export const clearCookiCardForm = () => {
+export const clearCookieCardForm = () => {
   return {
     type: "CLEAR_NEW_COOKIE_FORM"
   }

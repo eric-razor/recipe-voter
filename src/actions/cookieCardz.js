@@ -49,24 +49,29 @@ export const postCookieCard = cookieCardObj => {
   return dispatch => {
 
     const cookieCardData = {
-      cookiecard: {
+      card: {
         recipe_name: cookieCardObj.recipe_name,
         recipe_steps: cookieCardObj.recipe_steps,
-        recipe_ingredients: cookieCardObj.recipe_ingredients,
-        user_id: cookieCardObj.userId
+        recipe_ingredients: cookieCardObj.recipe_ingredients
       }
     }
 
-    return fetch('/cookiecardz', {
+    return fetch('http://localhost:3001/cookiecardz', {
       credentials:"include",
       method:"POST",
       headers: {
         "Content-Type":"application/json"
       },
-      body: JSON.stringify(cookieCardData )
+      body: JSON.stringify(cookieCardData)
     })
     .then(r => r.json())
-    .then(console.log)
+    .then(resp => {
+      if(resp.error){
+        alert(resp.error)
+      } else {
+        dispatch(addCard(resp))
+      }
+    })
     .catch(console.log)
   }
 }

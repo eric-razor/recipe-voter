@@ -15,9 +15,9 @@ export const clearCurrentUser = () => {
 // async
 export const login = credentials => {
   return dispatch => {
-    return fetch("/login", {
-      method:"POST",
+    return fetch("http://localhost:3001/api/v1/login", {
       credentials: "include",
+      method:"POST",
       headers: {
         "Content-Type": "application/json"
       },
@@ -26,7 +26,7 @@ export const login = credentials => {
     .then(r => r.json())
     .then( user => {
       if(user.error){
-        alert(user.error)
+        console.log(user.error)
       } else {
         dispatch(setCurrentUser(user))
       }
@@ -38,19 +38,18 @@ export const login = credentials => {
 export const logout = () => {
   return dispatch => {
     dispatch(clearCurrentUser())
-    // TODO: clear cookie cardz
-    return fetch("/logout", {
-      method: "DELETE",
-      credentials: "include"
+    return fetch("http://localhost:3001/api/v1/logout", {
+      credentials: "include",
+      method: "DELETE"
     })
   }
 }
 
 export const signup = credentials => {
   return dispatch => {
-    return fetch("/signup", {
-      method:"POST",
+    return fetch("http://localhost:3001/api/v1/signup", {
       credentials: "include",
+      method:"POST",
       headers: {
         "Content-Type": "application/json"
       },
@@ -59,18 +58,18 @@ export const signup = credentials => {
     .then(r => r.json())
     .then( user => {
       if(user.error){
-        alert(user.error)
+        console.log(user.error)
       } else {
         dispatch(setCurrentUser(user))
       }
     })
-    .catch(console.log())
+    .catch(console.log)
   }
 }
 
 export const getCurrentUser = () => {
   return dispatch => {
-    return fetch("/get_current_user", {
+    return fetch("http://localhost:3001/api/v1/get_current_user", {
       method:"GET",
       credentials: "include",
       headers: {
@@ -80,7 +79,7 @@ export const getCurrentUser = () => {
     .then(r => r.json())
     .then( user => {
       if(user.error) {
-        alert(user.error)
+        console.log(user)
       } else {
         dispatch(setCurrentUser(user))
       }
