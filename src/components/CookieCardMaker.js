@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux'
 import { updateCookieCardForm} from '../actions/newCookieCardForm'
-import {postCookieCard} from '../actions/cookieCardz'
+import {postCookieCard} from '../actions/cookieCards'
 
 
 const CookieCardMaker = ({newCookieCard, updateCookieCardForm,postCookieCard, userId,history}) => {
@@ -14,7 +14,7 @@ const CookieCardMaker = ({newCookieCard, updateCookieCardForm,postCookieCard, us
 
   const handleSubmit = (e) =>{
     e.preventDefault()
-    postCookieCard(newCookieCard)
+    postCookieCard({...newCookieCard,userId}, history)
 
   }
   return (
@@ -69,9 +69,11 @@ const CookieCardMaker = ({newCookieCard, updateCookieCardForm,postCookieCard, us
 }
 
 const mapState = state => {
+  const uid = state.user ? state.user.id : ""
   return{
-    newCookieCard: state.cookiecard
+    newCookieCard: state.cookiecard,
+    uid
   }
 }
-// flexbox for sections
+// need to get id for userId
 export default connect(mapState,{updateCookieCardForm, postCookieCard} )(CookieCardMaker);

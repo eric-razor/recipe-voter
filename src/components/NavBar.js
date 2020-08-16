@@ -3,7 +3,6 @@ import {
   BrowserRouter as Router,
   Route,
   Switch,
-  Link,
   NavLink
 } from "react-router-dom";
 import '../styles/NavBar.css'
@@ -12,6 +11,7 @@ import Home from './Home'
 import Login from './Login'
 import Signup from './Signup'
 import CookieCardMaker from './CookieCardMaker'
+import CookieCardListContainer from '../containers/CookieCardListContainer'
 
 const NavBar = () => {
   return (
@@ -30,7 +30,7 @@ const NavBar = () => {
                 <NavLink to="/signup">Sign Up</NavLink>
               </li>
               <li>
-                <NavLink to="/cookiecards"> Cookie Cardz </NavLink>
+                <NavLink to="/mycards"> My Cards </NavLink>
               </li>
               <li>
                 <NavLink to="/cookiecards/new"> Create cookie card  </NavLink>
@@ -39,18 +39,27 @@ const NavBar = () => {
           </nav>
 
           <Switch>
+
             <Route path="/login">
               <Login />
             </Route>
+
             <Route path="/signup">
               <Signup />
             </Route>
+
+            <Route path="/mycards">
+              <CookieCardListContainer/>
+            </Route>
+
             <Route path="/cookiecards/new">
               <CookieCardMaker/>
             </Route>
-            <Route path="/">
+
+            <Route exact path="/">
               <Home />
             </Route>
+
           </Switch>
         </div>
       </Router>

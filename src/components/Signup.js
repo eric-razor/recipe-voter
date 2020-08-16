@@ -45,7 +45,6 @@ const Signup = ({signupFormData, updateSignupForm, signup}) => {
             </div>
         </section>
 
-
         <input type="submit" value="Sign up" />
       </form>
     </div>
@@ -59,17 +58,3 @@ const mapState = state => {
 }
 
 export default connect(mapState, {updateSignupForm, signup})(Signup)
-
-
-
-
-
-
-
-
-// <section>
-// <label htmlFor="password"> Password</label>
-// <div className="input-box">
-// <input id="password-confirmation"  type="password-confirmation" name="password-confirmation" required value={signupFormData.password_confirmation} onChange={handleInputChange} />
-// </div>
-// </section>

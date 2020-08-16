@@ -1,4 +1,5 @@
 import React from 'react';
+import '../styles/Cookiecard.css'
 
 const CookieCard = ({ recipe_name, recipe_ingredients, recipe_steps }) => (
     <div className="cookie-card">
