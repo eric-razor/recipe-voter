@@ -4,8 +4,6 @@ import {connect} from 'react-redux'
 import {getCurrentUser} from './actions/authUser'
 import NavBar from './components/NavBar'
 
-import CookieCardListContainer from './containers/CookieCardListContainer'
-
 class App extends Component {
 
   constructor(props){
@@ -23,7 +21,6 @@ class App extends Component {
       return (
         <div className="App">
           <NavBar/>
-          <CookieCardListContainer/>
         </div>
       );
     }

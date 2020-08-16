@@ -5,7 +5,7 @@ import loginForm from './reducers/loginForm'
 import signupForm from './reducers/signupForm'
 import user from './reducers/assignUser'
 import cookiecard from './reducers/newCookieCardForm'
-import cookiecardz from './reducers/cookieCardz'
+import cookiecards from './reducers/cookieCards'
 
 
 const reducers = combineReducers({
@@ -13,7 +13,7 @@ const reducers = combineReducers({
   loginForm,
   signupForm,
   cookiecard,
-  cookiecardz
+  cookiecards
 })
 
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

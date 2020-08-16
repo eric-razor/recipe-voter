@@ -1,9 +1,9 @@
+import {clearCookieCardForm} from './newCookieCardForm'
 // sync
-
-export const getCardz = cookiecardz => {
+export const getCards = cookiecards => {
   return {
     type: "GET_COOKIE_CARDZ",
-    cookiecardz
+    cookiecards
   }
 }
 
@@ -20,12 +20,10 @@ export const addCard = cookiecard => {
   }
 }
 
-
 // async
-
-export const getCookieCardz = () => {
+export const getCookieCards = () => {
   return dispatch => {
-    return fetch('/cookiecardz', {
+    return fetch('http://localhost:3001/api/v1/cookiecards', {
       credentials: "include",
       method: "GET",
       headers: {
@@ -38,25 +36,26 @@ export const getCookieCardz = () => {
         alert(resp.error)
       } else {
         console.log(resp.data);
-        dispatch(getCardz(resp.data))
+        dispatch(getCards(resp.data))
       }
     })
     .catch(console.log)
   }
 }
 
-export const postCookieCard = cookieCardObj => {
+export const postCookieCard = (cookieCardObj, history) => {
   return dispatch => {
 
     const cookieCardData = {
       card: {
         recipe_name: cookieCardObj.recipe_name,
         recipe_steps: cookieCardObj.recipe_steps,
-        recipe_ingredients: cookieCardObj.recipe_ingredients
+        recipe_ingredients: cookieCardObj.recipe_ingredients,
+        user_id: cookieCardObj.uid
       }
     }
 
-    return fetch('http://localhost:3001/cookiecardz', {
+    return fetch('http://localhost:3001/api/v1/cookiecards', {
       credentials:"include",
       method:"POST",
       headers: {
@@ -70,6 +69,8 @@ export const postCookieCard = cookieCardObj => {
         alert(resp.error)
       } else {
         dispatch(addCard(resp))
+        dispatch(clearCookieCardForm)
+        history.push(`http://localhost:3001/api/v1/cookiecards/${resp.id}`)
       }
     })
     .catch(console.log)
