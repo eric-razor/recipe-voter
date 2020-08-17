@@ -1,3 +1,6 @@
+import {getCookieCards} from "./cookieCards"
+import history from "../history"
+
 // sync
 export const setCurrentUser = user => {
   return {
@@ -13,7 +16,7 @@ export const clearCurrentUser = () => {
 }
 
 // async
-export const login = credentials => {
+export const login = (credentials, history) => {
   return dispatch => {
     return fetch("http://localhost:3001/api/v1/login", {
       credentials: "include",
@@ -26,12 +29,14 @@ export const login = credentials => {
     .then(r => r.json())
     .then( user => {
       if(user.error){
-        console.log(user.error)
+        alert(user.error)
       } else {
         dispatch(setCurrentUser(user))
+        dispatch(getCookieCards())
+        history.push('/')
       }
     })
-    .catch(console.log())
+    .catch(console.log)
   }
 }
 
