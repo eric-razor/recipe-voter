@@ -11,6 +11,7 @@ import Home from './Home'
 import Login from './Login'
 import Signup from './Signup'
 import CookieCardMaker from './CookieCardMaker'
+import CookieCard from '../components/CookieCard'
 import CookieCardListContainer from '../containers/CookieCardListContainer'
 
 const NavBar = () => {
@@ -67,10 +68,10 @@ const NavBar = () => {
   )
 }
 
-const mapState = ({user}) =>{
-  return(
-    user
-  )
+const mapState = state =>{
+  return({
+    user: state.user
+  })
 }
 
 export default connect(mapState)(NavBar)
