@@ -1,32 +1,36 @@
 import React, {Component} from 'react'
+import {connect} from 'react-redux'
 import CookieCardList from '../components/CookieCardList'
+import {getCookieCards} from '../actions/cookieCards'
 
 class CookieCardListContainer extends Component{
 
   constructor() {
     super()
 
-    this.state = {
-      cookiecardz: []
-    }
+    // this.state = {
+    //   cookiecards: []
+    // }
   }
 
   componentDidMount(){
-    fetch('http://localhost:3001/api/v1/mycards')
-    .then(resp => resp.json())
-    .then(cardData => this.setState({
-      cookiecardz: cardData.cookiecardz
-    }))
+    this.props.getCookieCards()
   }
 
   render(){
     return(
       <div className="cookie-list">
       cookies:
-        <CookieCardList cookiecardz={this.state.cookiecardz} />
+        <CookieCardList cookiecards={this.props.cookiecards} />
       </div>
     )
   }
 }
 
-export default CookieCardListContainer
+const mapState = state => {
+  return {
+    cookiecards: state.cookiecards
+  }
+}
+
+export default connect(mapState, {getCookieCards})(CookieCardListContainer)

@@ -3,7 +3,7 @@ import history from "../history"
 // sync
 export const getCards = cookiecards => {
   return {
-    type: "GET_COOKIE_CARDZ",
+    type: "GET_COOKIE_CARDS",
     cookiecards
   }
 }
@@ -24,7 +24,7 @@ export const addCard = cookiecard => {
 // async
 export const getCookieCards = () => {
   return dispatch => {
-    return fetch('http://localhost:3001/api/v1/cookiecards', {
+    return fetch('http://localhost:3001/api/v1/mycards', {
       credentials: "include",
       method: "GET",
       headers: {

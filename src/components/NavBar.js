@@ -1,9 +1,9 @@
 import React from 'react'
 import {
-  BrowserRouter as Router,
   Route,
   Switch,
-  NavLink
+  NavLink,
+  withRouter
 } from "react-router-dom";
 import '../styles/NavBar.css'
 import {connect} from 'react-redux'
@@ -17,7 +17,6 @@ import CookieCardListContainer from '../containers/CookieCardListContainer'
 const NavBar = () => {
   return (
     <div className="NavBar">
-      <Router>
         <div className="Nav-Routes">
           <nav>
             <ul className="Nav-Route-List">
@@ -41,29 +40,18 @@ const NavBar = () => {
 
           <Switch>
 
-            <Route path="/login">
-              <Login />
-            </Route>
+          <Route path="/signup" render={({history}) => <Signup history={history}/>}/>
 
-            <Route path="/signup">
-              <Signup />
-            </Route>
+          <Route path="/login" component={Login}/>
 
-            <Route path="/mycards">
-              <CookieCardListContainer/>
-            </Route>
+          <Route path="/mycards" component={CookieCardListContainer}/>
 
-            <Route path="/cookiecards/new">
-              <CookieCardMaker/>
-            </Route>
+          <Route path="/cookiecards/new" component={CookieCardMaker}/>
 
-            <Route exact path="/">
-              <Home />
-            </Route>
+          <Route exact path="/" component={Home}/>
 
           </Switch>
         </div>
-      </Router>
     </div>
   )
 }
@@ -74,4 +62,4 @@ const mapState = state =>{
   })
 }
 
-export default connect(mapState)(NavBar)
+export default withRouter(connect(mapState)(NavBar))
