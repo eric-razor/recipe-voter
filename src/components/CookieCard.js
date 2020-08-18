@@ -1,10 +1,9 @@
 import React from 'react';
-import '../styles/Cookiecard.css'
+// import '../styles/CookieCard.css'
 
 const CookieCard = ({ recipe_name, recipe_ingredients, recipe_steps }) => (
     <div className="cookie-card">
       <h1>{recipe_name}</h1>
-      <br/>
       <ul>
         <li>{recipe_ingredients}</li>
       </ul>
