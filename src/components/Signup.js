@@ -4,7 +4,7 @@ import {updateSignupForm} from '../actions/signupForm'
 import {signup} from '../actions/authUser.js'
 
 
-const Signup = ({signupFormData, updateSignupForm, signup}) => {
+const Signup = ({signupFormData, updateSignupForm, signup, history}) => {
 
   const handleInputChange = event => {
     const {name,value} = event.target
@@ -17,7 +17,7 @@ const Signup = ({signupFormData, updateSignupForm, signup}) => {
 
   const handleSubmit = e => {
     e.preventDefault()
-    signup(signupFormData)
+    signup(signupFormData, history)
   }
 
   return (

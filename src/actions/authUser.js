@@ -1,5 +1,6 @@
 import {getCookieCards} from "./cookieCards"
-import history from "../history"
+import {resetSignupForm} from "./signupForm"
+// import history from "../history"
 
 // sync
 export const setCurrentUser = user => {
@@ -50,7 +51,7 @@ export const logout = () => {
   }
 }
 
-export const signup = credentials => {
+export const signup = (credentials,history) => {
   return dispatch => {
     const userInfo = {
       user:  credentials
@@ -69,6 +70,8 @@ export const signup = credentials => {
         console.log(user.error)
       } else {
         dispatch(setCurrentUser(user))
+        dispatch(resetSignupForm())
+        history.push('/')
       }
     })
     .catch(console.log)
