@@ -40,7 +40,7 @@ const NavBar = () => {
 
           <Switch>
 
-          <Route path="/signup" render={({history}) => <Signup history={history}/>}/>
+          <Route path="/signup" component={Signup}/>
 
           <Route path="/login" component={Login}/>
 

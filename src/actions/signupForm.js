@@ -6,7 +6,7 @@ export const updateSignupForm = (signupFormObj) => {
   }
 }
 
-export const resetSignupFrom = () => {
+export const resetSignupForm = () => {
   return {
     type: "RESET_SIGNUP_FORM"
   }
