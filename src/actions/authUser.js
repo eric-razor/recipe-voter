@@ -30,7 +30,7 @@ export const login = (credentials, history) => {
     .then(r => r.json())
     .then( user => {
       if(user.error){
-        alert(user.error)
+        alert("Invalid email or password")
       } else {
         dispatch(setCurrentUser(user))
         dispatch(getCookieCards())
@@ -80,7 +80,7 @@ export const signup = (credentials,history) => {
 
 export const getCurrentUser = () => {
   return dispatch => {
-    return fetch("http://localhost:3001/api/v1/get_current_user", {
+    return fetch("http://localhost:3001/api/v1/currentuser", {
       method:"GET",
       credentials: "include",
       headers: {
