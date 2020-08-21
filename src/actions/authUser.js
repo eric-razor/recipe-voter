@@ -1,5 +1,6 @@
 import {getCookieCards} from "./cookieCards"
 import {resetSignupForm} from "./signupForm"
+import {clearLoginForm} from "./loginForm"
 // import history from "../history"
 
 // sync
@@ -34,6 +35,7 @@ export const login = (credentials, history) => {
       } else {
         dispatch(setCurrentUser(user))
         dispatch(getCookieCards())
+        dispatch(clearLoginForm())
         history.push('/')
       }
     })

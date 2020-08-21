@@ -71,7 +71,7 @@ const CookieCardMaker = ({newCookieCard, updateCookieCardForm,postCookieCard, us
 const mapState = state => {
   const uid = state.user ? state.user.id : ""
   return{
-    newCookieCard: state.cookiecard,
+    newCookieCard: state.newCookieCard,
     uid
   }
 }

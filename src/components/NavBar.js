@@ -7,7 +7,7 @@ import {
 } from "react-router-dom";
 import '../styles/NavBar.css'
 import {connect} from 'react-redux'
-import Home from './Home'
+import Explore from './Explore'
 import Login from './Login'
 import Signup from './Signup'
 import CookieCardMaker from './CookieCardMaker'
@@ -21,7 +21,7 @@ const NavBar = () => {
           <nav>
             <ul className="Nav-Route-List">
               <li>
-                <NavLink to="/">Home</NavLink>
+                <NavLink to="/">Explore</NavLink>
               </li>
               <li>
                 <NavLink to="/login">Log In </NavLink>
@@ -38,6 +38,8 @@ const NavBar = () => {
             </ul>
           </nav>
 
+
+
           <Switch>
 
           <Route path="/signup" component={Signup}/>
@@ -48,7 +50,7 @@ const NavBar = () => {
 
           <Route path="/cookiecards/new" component={CookieCardMaker}/>
 
-          <Route exact path="/" component={Home}/>
+          <Route exact path="/" component={Explore}/>
 
           </Switch>
         </div>
@@ -56,9 +58,9 @@ const NavBar = () => {
   )
 }
 
-const mapState = state =>{
+const mapState = ({user}) =>{
   return({
-    user: state.user
+    user
   })
 }
 

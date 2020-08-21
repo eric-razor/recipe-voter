@@ -8,9 +8,6 @@ import NavBar from './components/NavBar'
 
 class App extends Component {
 
-  constructor(props){
-    super(props)
-  }
 
   componentDidMount(){
     this.props.getCurrentUser()
@@ -18,9 +15,11 @@ class App extends Component {
 
   render() {
       const {loggedIn} = this.props
+
       return (
         <div className="App">
         {loggedIn ? <Logout /> : null}
+        {this.props.user ? <strong> Welcome {this.props.user.name}</strong> : ""}
           <NavBar/>
         </div>
       );
@@ -29,7 +28,8 @@ class App extends Component {
 
   const mapState = state => {
     return {
-      loggedIn: !!state.user
+      loggedIn: !!state.user,
+      user: state.user
     }
   }
 

@@ -4,3 +4,9 @@ export const updateLoginForm = (loginFormObj) => {
     loginFormObj
   }
 }
+
+export const clearLoginForm = () => {
+  return {
+    type: "CLEAR_LOGIN_FORM"
+  }
+}

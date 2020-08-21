@@ -1,5 +1,5 @@
 import {clearCookieCardForm} from './newCookieCardForm'
-import history from "../history"
+// import history from "../history"
 // sync
 export const getCards = cookiecards => {
   return {
@@ -46,7 +46,6 @@ export const getCookieCards = () => {
 
 export const postCookieCard = (cookieCardObj, history) => {
   return dispatch => {
-
     const cookieCardData = {
       card: {
         recipe_name: cookieCardObj.recipe_name,
@@ -70,8 +69,8 @@ export const postCookieCard = (cookieCardObj, history) => {
         alert(resp.error)
       } else {
         dispatch(addCard(resp))
-        dispatch(clearCookieCardForm)
-        history.push(`http://localhost:3001/api/v1/cookiecards/${resp.id}`)
+        dispatch(clearCookieCardForm())
+        history.push(`/mycards`)
       }
     })
     .catch(console.log)

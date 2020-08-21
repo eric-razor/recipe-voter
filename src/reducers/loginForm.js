@@ -1,6 +1,6 @@
 const initialState = {
   email:"",
-  password:"password"
+  password:""
 }
 
 export default (state = initialState, action) => {
@@ -8,7 +8,7 @@ export default (state = initialState, action) => {
     case "UPDATE_LOGIN_FORM":
       return action.loginFormObj
     case "CLEAR_LOGIN_FORM":
-      return null
+      return initialState
     default:
       return state
   }

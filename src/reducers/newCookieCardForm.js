@@ -12,7 +12,7 @@ export default (state = initialState, action) => {
         [action.cookieCardData.name]: action.cookieCardData.value
       }
     case "CLEAR_NEW_COOKIE_FORM":
-      return null
+      return initialState
     default:
       return state
   }

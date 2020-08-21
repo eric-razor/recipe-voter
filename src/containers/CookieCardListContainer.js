@@ -7,10 +7,6 @@ class CookieCardListContainer extends Component{
 
   constructor() {
     super()
-
-    // this.state = {
-    //   cookiecards: []
-    // }
   }
 
   componentDidMount(){
@@ -19,9 +15,9 @@ class CookieCardListContainer extends Component{
 
   render(){
     return(
-      <div className="cookie-list">
+      <div className="cookie-jar">
       cookies:
-        <CookieCardList cookiecards={this.props.cookiecards} />
+        <CookieCardList cookieCards={this.props.cookieCards} />
       </div>
     )
   }
@@ -29,7 +25,7 @@ class CookieCardListContainer extends Component{
 
 const mapState = state => {
   return {
-    cookiecards: state.cookiecards
+    cookieCards: state.cookieCards
   }
 }
 
