@@ -1,6 +1,7 @@
 .Nav-Route-List {
   display: flex;
   flex-direction: column;
+  list-style: none;
 }
 
 a:hover {
