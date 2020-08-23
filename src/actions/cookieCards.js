@@ -24,7 +24,7 @@ export const addCard = cookiecard => {
 // async
 export const getCookieCards = () => {
   return dispatch => {
-    return fetch('http://localhost:3001/api/v1/mycards', {
+    return fetch('http://localhost:3001/api/v1/cookiecards', {
       credentials: "include",
       method: "GET",
       headers: {
@@ -70,7 +70,7 @@ export const postCookieCard = (cookieCardObj, history) => {
       } else {
         dispatch(addCard(resp))
         dispatch(clearCookieCardForm())
-        history.push(`/mycards`)
+        history.push(`/cookiecards`)
       }
     })
     .catch(console.log)
