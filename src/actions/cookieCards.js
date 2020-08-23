@@ -36,8 +36,7 @@ export const getCookieCards = () => {
       if (resp.error){
         alert(resp.error)
       } else {
-        console.log(resp.data);
-        dispatch(getCards(resp.data))
+        dispatch(getCards(resp))
       }
     })
     .catch(console.log)
