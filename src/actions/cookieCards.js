@@ -8,18 +8,19 @@ export const getCards = cookiecards => {
   }
 }
 
-export const clearCard = () => {
-  return {
-    type: "CLEAR_COOKIE_CARD"
-  }
-}
-
 export const addCard = cookiecard => {
   return {
     type: "CREATE_COOKIE_CARD",
     cookiecard
   }
 }
+
+export const clearCard = () => {
+  return {
+    type: "CLEAR_COOKIE_CARD"
+  }
+}
+
 
 // async
 export const getCookieCards = () => {
@@ -50,7 +51,8 @@ export const postCookieCard = (cookieCardObj, history) => {
         recipe_name: cookieCardObj.recipe_name,
         recipe_steps: cookieCardObj.recipe_steps,
         recipe_ingredients: cookieCardObj.recipe_ingredients,
-        user_id: cookieCardObj.uid
+        user_id: cookieCardObj.uid,
+        card_id: cookieCardObj.cid
       }
     }
 
@@ -64,13 +66,15 @@ export const postCookieCard = (cookieCardObj, history) => {
     })
     .then(r => r.json())
     .then(resp => {
-      if(resp.error){
-        alert(resp.error)
-      } else {
-        dispatch(addCard(resp))
-        dispatch(clearCookieCardForm())
-        history.push(`/cookiecards`)
-      }
+      console.log(resp);
+      // if(resp.error){
+      //   alert(resp.error)
+      // } else {
+      //   debugger
+      //   dispatch(addCard(resp))
+      //   dispatch(clearCookieCardForm())
+      //   history.push(`/cookiecards`)
+      // }
     })
     .catch(console.log)
   }

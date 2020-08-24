@@ -1,15 +1,16 @@
 import React from 'react';
 import CardType from './CardType';
+import {Link} from 'react-router-dom'
 
  const CardTypeList = ({categories}) => {
     return (
       <div className="categories-list">
         {categories.map(category =>
-          <div key={category.id}>
+          <Link key={categories.id} to={`/categories/${category.cards}`}>
             <CardType
               category={category}
             />
-          </div>
+          </Link>
         )}
       </div>
     )

@@ -29,7 +29,7 @@ const NavBar = () => {
 
         <Route exact path="/cookiecards/new" component={CookieCardMaker}/>
 
-        <Route exact path="/" component={Explore}/>
+        <Route exact path="/categories" component={Explore}/>
 
       </Switch>
     </div>

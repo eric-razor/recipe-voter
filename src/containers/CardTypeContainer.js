@@ -6,6 +6,7 @@ class CardTypeContainer extends Component {
 
   constructor() {
     super()
+    
   }
 
   componentDidMount(){

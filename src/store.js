@@ -14,8 +14,8 @@ const reducers = combineReducers({
   loginForm,
   signupForm,
   newCookieCard,
-  cookieCards,
-  categories
+  categories,
+  cookieCards
 })
 
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

@@ -5,6 +5,7 @@ import {getCurrentUser} from './actions/authUser'
 import Login from './components/Login'
 import Logout from './components/Logout'
 import NavBar from './components/NavBar'
+import CardTypeContainer from './containers/CardTypeContainer'
 
 class App extends Component {
 

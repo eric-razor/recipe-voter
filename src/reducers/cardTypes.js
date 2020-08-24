@@ -1,4 +1,4 @@
-const initialState = []
+const initialState = ['Breakfast','Lunch','Dinner']
 
 export default (state=initialState, action) => {
   switch (action.type) {
