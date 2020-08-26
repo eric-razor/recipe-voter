@@ -36,7 +36,7 @@ export const login = (credentials, history) => {
         dispatch(setCurrentUser(user))
         dispatch(getCookieCards())
         dispatch(clearLoginForm())
-        history.push('/')
+        history.push('/cookiecards')
       }
     })
     .catch(console.log)

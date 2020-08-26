@@ -17,7 +17,7 @@ class CookieCardListContainer extends Component{
     return(
       <div className="cookie-jar">
       cookies:
-        <CookieCardList cookieCards={this.props.cookieCards} />
+      <CookieCardList cookieCards={this.props.cookieCards} />
       </div>
     )
   }

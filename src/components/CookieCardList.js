@@ -9,7 +9,7 @@ const CookieCardList = ({cookieCards}) => (
         <div key={card.id}>
           <CookieCard
             recipe_name={card.recipe_name}
-            recipe_ingredients={card.recipe_ingredients} 
+            recipe_ingredients={card.recipe_ingredients}
             recipe_steps={card.recipe_steps}
           />
         </div>
