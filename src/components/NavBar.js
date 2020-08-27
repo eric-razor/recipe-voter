@@ -6,7 +6,6 @@ import {
   withRouter
 } from "react-router-dom";
 import {connect} from 'react-redux'
-import Explore from './Explore'
 import Login from './Login'
 import Signup from './Signup'
 import CookieCardMaker from './CookieCardMaker'
@@ -15,7 +14,7 @@ import CookieCardListContainer from '../containers/CookieCardListContainer'
 import NavList from './NavList'
 
 
-const NavBar = () => {
+const NavBar = (props) => {
   return (
     <div className="NavBar">
       <NavList/>
@@ -29,12 +28,22 @@ const NavBar = () => {
 
         <Route exact path="/cookiecards/new" component={CookieCardMaker}/>
 
-        <Route exact path="/categories" component={Explore}/>
+        <Route exact path="/cookiecards/:id" render={() => {
+          
+
+        }}/>
 
       </Switch>
     </div>
   )
 }
 
+const mapState = (props) =>{
+  console.log(props);
+  return{
+    cards:props.cookieCards
+  }
+}
 
-export default withRouter(NavBar)
+
+export default withRouter(connect()(NavBar))

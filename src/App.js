@@ -5,7 +5,7 @@ import {getCurrentUser} from './actions/authUser'
 import Login from './components/Login'
 import Logout from './components/Logout'
 import NavBar from './components/NavBar'
-import CardTypeContainer from './containers/CardTypeContainer'
+
 
 class App extends Component {
 
@@ -21,7 +21,7 @@ class App extends Component {
         <div className="App">
         {loggedIn ? <Logout /> : null}
         {this.props.user ? <strong> Welcome {this.props.user.name}</strong> : ""}
-          <NavBar/>
+          <NavBar cards={this.props.cards }/>
         </div>
       );
     }
@@ -30,7 +30,8 @@ class App extends Component {
   const mapState = state => {
     return {
       loggedIn: !!state.user,
-      user: state.user
+      user: state.user,
+      cards: state.cookieCards
     }
   }
 

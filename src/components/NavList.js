@@ -11,9 +11,6 @@ const NavList = () => {
           <nav>
             <ul className="Nav-Route-List">
               <li>
-                <NavLink to="/categories">Explore</NavLink>
-              </li>
-              <li>
                 <NavLink to="/login">Log In </NavLink>
               </li>
               <li>

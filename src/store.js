@@ -6,7 +6,7 @@ import signupForm from './reducers/signupForm'
 import user from './reducers/assignUser'
 import newCookieCard from './reducers/newCookieCardForm'
 import cookieCards from './reducers/cookieCards'
-import categories from './reducers/cardTypes'
+
 
 
 const reducers = combineReducers({
@@ -14,7 +14,6 @@ const reducers = combineReducers({
   loginForm,
   signupForm,
   newCookieCard,
-  categories,
   cookieCards
 })
 
