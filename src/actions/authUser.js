@@ -1,5 +1,6 @@
 import {getCookieCards} from "./cookieCards"
 import {resetSignupForm} from "./signupForm"
+import {clearLoginForm} from "./loginForm"
 // import history from "../history"
 
 // sync
@@ -30,11 +31,12 @@ export const login = (credentials, history) => {
     .then(r => r.json())
     .then( user => {
       if(user.error){
-        alert(user.error)
+        alert("Invalid email or password")
       } else {
         dispatch(setCurrentUser(user))
         dispatch(getCookieCards())
-        history.push('/')
+        dispatch(clearLoginForm())
+        history.push('/cookiecards')
       }
     })
     .catch(console.log)
@@ -80,7 +82,7 @@ export const signup = (credentials,history) => {
 
 export const getCurrentUser = () => {
   return dispatch => {
-    return fetch("http://localhost:3001/api/v1/get_current_user", {
+    return fetch("http://localhost:3001/api/v1/currentuser", {
       method:"GET",
       credentials: "include",
       headers: {

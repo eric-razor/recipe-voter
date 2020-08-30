@@ -4,16 +4,17 @@ import thunk  from 'redux-thunk'
 import loginForm from './reducers/loginForm'
 import signupForm from './reducers/signupForm'
 import user from './reducers/assignUser'
-import cookiecard from './reducers/newCookieCardForm'
-import cookiecards from './reducers/cookieCards'
+import newCookieCard from './reducers/newCookieCardForm'
+import cookieCards from './reducers/cookieCards'
+
 
 
 const reducers = combineReducers({
   user,
   loginForm,
   signupForm,
-  cookiecard,
-  cookiecards
+  newCookieCard,
+  cookieCards
 })
 
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

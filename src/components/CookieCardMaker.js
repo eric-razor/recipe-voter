@@ -4,7 +4,7 @@ import { updateCookieCardForm} from '../actions/newCookieCardForm'
 import {postCookieCard} from '../actions/cookieCards'
 
 
-const CookieCardMaker = ({newCookieCard, updateCookieCardForm,postCookieCard, userId,history}) => {
+const CookieCardMaker = ({newCookieCard, updateCookieCardForm,postCookieCard, uid,history}) => {
   const {recipe_name, recipe_steps, recipe_ingredients} = newCookieCard
 
   const handleChange = (e) =>{
@@ -14,8 +14,7 @@ const CookieCardMaker = ({newCookieCard, updateCookieCardForm,postCookieCard, us
 
   const handleSubmit = (e) =>{
     e.preventDefault()
-    postCookieCard({...newCookieCard,userId}, history)
-
+    postCookieCard({...newCookieCard, uid}, history)
   }
   return (
     <div className="cookie-card">
@@ -71,9 +70,9 @@ const CookieCardMaker = ({newCookieCard, updateCookieCardForm,postCookieCard, us
 const mapState = state => {
   const uid = state.user ? state.user.id : ""
   return{
-    newCookieCard: state.cookiecard,
+    newCookieCard: state.newCookieCard,
     uid
   }
 }
-// need to get id for userId
+
 export default connect(mapState,{updateCookieCardForm, postCookieCard} )(CookieCardMaker);
