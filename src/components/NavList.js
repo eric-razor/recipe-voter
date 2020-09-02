@@ -28,5 +28,5 @@ const NavList = () => {
     </div>
   )
 }
-
+// this should b navbar
 export default NavList;

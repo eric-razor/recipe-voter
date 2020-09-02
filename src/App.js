@@ -5,11 +5,15 @@ import {getCurrentUser} from './actions/authUser'
 import Login from './components/Login'
 import Logout from './components/Logout'
 import NavBar from './components/NavBar'
+import {
+  withRouter
+} from "react-router-dom";
 
 
 class App extends Component {
 
-
+// add check to see if user is logged in
+// load cards in componentDidMount
   componentDidMount(){
     this.props.getCurrentUser()
   }
@@ -21,7 +25,7 @@ class App extends Component {
         <div className="App">
         {loggedIn ? <Logout /> : null}
         {this.props.user ? <strong> Welcome {this.props.user.name}</strong> : ""}
-          <NavBar cards={this.props.cards }/>
+          <NavBar cards={this.props.cards}/>
         </div>
       );
     }
@@ -35,4 +39,4 @@ class App extends Component {
     }
   }
 
-export default connect(mapState, {getCurrentUser})(App);
+export default connect(mapState, {getCurrentUser})(App)

@@ -38,7 +38,6 @@ export const getCookieCards = () => {
         dispatch(getCards(resp))
       }
     })
-    .catch(console.log)
   }
 }
 
@@ -63,13 +62,12 @@ export const postCookieCard = (cookieCardObj, history) => {
     })
     .then(r => r.json())
     .then(resp => {
-      console.log(resp);
       if(resp.error){
         alert(resp.error)
       } else {
         dispatch(addCard(resp))
         dispatch(clearCookieCardForm())
-        history.push(`/cookiecards`)
+        history.push(`/cookiecards/${resp.id}`)
       }
     })
   }

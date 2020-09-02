@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {Component} from 'react'
 import {
   Route,
   Switch,
@@ -14,36 +14,43 @@ import CookieCardListContainer from '../containers/CookieCardListContainer'
 import NavList from './NavList'
 
 
-const NavBar = (props) => {
-  return (
-    <div className="NavBar">
-      <NavList/>
-      <Switch>
+const NavBar = ({cards})  => {
+  {
+    return (
+      <div className="NavBar">
+        <NavList/>
+        <Switch>
 
-        <Route path="/signup" component={Signup}/>
+          <Route path="/signup" component={Signup}/>
 
-        <Route path="/login" component={Login}/>
+          <Route path="/login" component={Login}/>
 
-        <Route exact path="/cookiecards" component={CookieCardListContainer}/>
+          <Route exact path="/cookiecards" component={CookieCardListContainer}/>
+// pass redux props to cookiecard
 
-        <Route exact path="/cookiecards/new" component={CookieCardMaker}/>
+          <Route exact path="/cookiecards/new" component={CookieCardMaker}/>
 
-        <Route exact path="/cookiecards/:id" render={() => {
-          
+          <Route exact path='/cookiecards/:id' render={(props) =>{
+            console.log("child cards:",cards);
+            console.log("props: ",props);
+            const card = cards.find(card => card.id === parseInt(props.match.params.id))
+            console.log(card);
+            return <div> <CookieCard {...props} recipe_name={card.recipe_name}
+            recipe_ingredients={card.recipe_ingredients}
+            recipe_steps={card.recipe_steps}/></div>
 
-        }}/>
+          }}/>
 
-      </Switch>
-    </div>
-  )
-}
+          <Route exact path='/cookiecards/:id/edit' render={(props) =>{
 
-const mapState = (props) =>{
-  console.log(props);
-  return{
-    cards:props.cookieCards
+            return <div> <CookieCard {...props}/></div>
+
+          }}/>
+
+        </Switch>
+      </div>
+    );
   }
 }
-
-
-export default withRouter(connect()(NavBar))
+// nav list
+export default NavBar
