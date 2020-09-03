@@ -1,49 +1,32 @@
 import React from 'react'
 import {
-  Route,
-  Switch,
   NavLink,
-  withRouter
 } from "react-router-dom";
-import {connect} from 'react-redux'
-import Login from './Login'
-import Signup from './Signup'
-import CookieCardMaker from './CookieCardMaker'
-import CookieCard from './CookieCard'
-import CookieCardListContainer from '../containers/CookieCardListContainer'
-import NavList from './NavList'
+import '../styles/NavBar.css'
 
-
-const NavBar = (props) => {
+const NavList = () => {
   return (
     <div className="NavBar">
-      <NavList/>
-      <Switch>
-
-        <Route path="/signup" component={Signup}/>
-
-        <Route path="/login" component={Login}/>
-
-        <Route exact path="/cookiecards" component={CookieCardListContainer}/>
-
-        <Route exact path="/cookiecards/new" component={CookieCardMaker}/>
-
-        <Route exact path="/cookiecards/:id" render={() => {
-          
-
-        }}/>
-
-      </Switch>
+        <div className="Nav-Routes">
+          <nav>
+            <ul className="Nav-Route-List">
+              <li>
+                <NavLink to="/login">Log In </NavLink>
+              </li>
+              <li>
+                <NavLink to="/signup">Sign Up</NavLink>
+              </li>
+              <li>
+                <NavLink to="/cookiecards"> My Cards </NavLink>
+              </li>
+              <li>
+                <NavLink to="/cookiecards/new"> Create cookie card  </NavLink>
+              </li>
+            </ul>
+          </nav>
+        </div>
     </div>
   )
 }
-
-const mapState = (props) =>{
-  console.log(props);
-  return{
-    cards:props.cookieCards
-  }
-}
-
-
-export default withRouter(connect()(NavBar))
+// this should b navbar
+export default NavList;

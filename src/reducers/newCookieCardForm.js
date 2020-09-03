@@ -13,6 +13,9 @@ export default (state = initialState, action) => {
       }
     case "CLEAR_NEW_COOKIE_FORM":
       return initialState
+
+    case "EDIT_COOKIE_FORM":
+      return action.cookieCardObj
     default:
       return state
   }

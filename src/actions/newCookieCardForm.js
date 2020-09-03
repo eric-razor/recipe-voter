@@ -13,4 +13,11 @@ export const clearCookieCardForm = () => {
   }
 }
 
+export const editCookieCardForm = (cookieCardObj) => {
+  return {
+    type:"EDIT_COOKIE_FORM",
+    cookieCardObj
+  }
+}
+
 // async

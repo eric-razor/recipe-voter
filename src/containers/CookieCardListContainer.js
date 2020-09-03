@@ -5,10 +5,6 @@ import {getCookieCards} from '../actions/cookieCards'
 
 class CookieCardListContainer extends Component{
 
-  constructor() {
-    super()
-  }
-
   componentDidMount(){
     this.props.getCookieCards()
   }
