@@ -1,56 +1,32 @@
-import React, {Component} from 'react'
+import React from 'react'
 import {
-  Route,
-  Switch,
   NavLink,
-  withRouter
 } from "react-router-dom";
-import {connect} from 'react-redux'
-import Login from './Login'
-import Signup from './Signup'
-import CookieCardMaker from './CookieCardMaker'
-import CookieCard from './CookieCard'
-import CookieCardListContainer from '../containers/CookieCardListContainer'
-import NavList from './NavList'
+import '../styles/NavBar.css'
 
-
-const NavBar = ({cards})  => {
-  {
-    return (
-      <div className="NavBar">
-        <NavList/>
-        <Switch>
-
-          <Route path="/signup" component={Signup}/>
-
-          <Route path="/login" component={Login}/>
-
-          <Route exact path="/cookiecards" component={CookieCardListContainer}/>
-// pass redux props to cookiecard
-
-          <Route exact path="/cookiecards/new" component={CookieCardMaker}/>
-
-          <Route exact path='/cookiecards/:id' render={(props) =>{
-            console.log("child cards:",cards);
-            console.log("props: ",props);
-            const card = cards.find(card => card.id === parseInt(props.match.params.id))
-            console.log(card);
-            return <div> <CookieCard {...props} recipe_name={card.recipe_name}
-            recipe_ingredients={card.recipe_ingredients}
-            recipe_steps={card.recipe_steps}/></div>
-
-          }}/>
-
-          <Route exact path='/cookiecards/:id/edit' render={(props) =>{
-
-            return <div> <CookieCard {...props}/></div>
-
-          }}/>
-
-        </Switch>
-      </div>
-    );
-  }
+const NavList = () => {
+  return (
+    <div className="NavBar">
+        <div className="Nav-Routes">
+          <nav>
+            <ul className="Nav-Route-List">
+              <li>
+                <NavLink to="/login">Log In </NavLink>
+              </li>
+              <li>
+                <NavLink to="/signup">Sign Up</NavLink>
+              </li>
+              <li>
+                <NavLink to="/cookiecards"> My Cards </NavLink>
+              </li>
+              <li>
+                <NavLink to="/cookiecards/new"> Create cookie card  </NavLink>
+              </li>
+            </ul>
+          </nav>
+        </div>
+    </div>
+  )
 }
-// nav list
-export default NavBar
+// this should b navbar
+export default NavList;
