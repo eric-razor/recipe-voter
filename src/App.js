@@ -3,12 +3,8 @@ import './styles/App.css'
 import {connect} from 'react-redux'
 import {getCurrentUser} from './actions/authUser'
 import {getCookieCards} from './actions/cookieCards'
-import Login from './components/Login'
 import Logout from './components/Logout'
 import NavList from './components/NavList'
-import {
-  withRouter
-} from "react-router-dom";
 
 
 class App extends Component {
@@ -19,10 +15,12 @@ class App extends Component {
   componentDidMount(){
     this.props.getCurrentUser()
     this.props.getCookieCards()
+
   }
 
+
   render() {
-      const {loggedIn} = this.props
+      const {loggedIn, cards} = this.props
 
       return (
         <div className="App">

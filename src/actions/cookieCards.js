@@ -14,9 +14,30 @@ export const addCard = cookiecard => {
   }
 }
 
+export const editCard = cookiecard => {
+  return {
+    type: "EDIT_COOKIE_CARD",
+    cookiecard
+  }
+}
+
+export const updateCard = card => {
+  return {
+    type: "UPDATE_COOKIE_CARD",
+    card
+  }
+}
+
 export const clearCard = () => {
   return {
     type: "CLEAR_COOKIE_CARD"
+  }
+}
+
+export const deleteCard = cardId => {
+  return {
+    type: "DELETE_COOKIE_CARD",
+    cardId
   }
 }
 
@@ -72,3 +93,54 @@ export const postCookieCard = (cookieCardObj, history) => {
     })
   }
 }
+
+export const editCookieCard = (cookieCardObj, history) => {
+    return dispatch => {
+      const cookieCardData = {
+        card: {
+          recipe_name: cookieCardObj.recipe_name,
+          recipe_steps: cookieCardObj.recipe_steps,
+          recipe_ingredients: cookieCardObj.recipe_ingredients
+        }
+      }
+
+      return fetch(`http://localhost:3001/api/v1/cookiecards/${cookieCardObj.cardId}`, {
+        credentials:"include",
+        method:"PATCH",
+        headers: {
+          "Content-Type":"application/json"
+        },
+        body: JSON.stringify(cookieCardData)
+      })
+      .then(r => r.json())
+      .then(resp => {
+        if(resp.error){
+          alert(resp.error)
+        } else {
+          dispatch(updateCard(resp))
+          history.push(`/cookiecards/${resp.id}`)
+        }
+      })
+    }
+  }
+
+  export const deleteCookieCard = (cardId, history) => {
+    return dispatch => {
+      return fetch(`http://localhost:3001/api/v1/cookiecards/${cardId}`, {
+        credentials: "include",
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json"
+        }
+      })
+        .then(r => r.json())
+        .then(resp => {
+          if (resp.error) {
+            alert(resp.error)
+          } else {
+            dispatch(deleteCard(cardId))
+            history.push(`/cookiecards`)
+          }
+        })
+      }
+    }

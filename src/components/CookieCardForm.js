@@ -1,10 +1,9 @@
 import React from 'react';
 import {connect} from 'react-redux'
 import { updateCookieCardForm} from '../actions/newCookieCardForm'
-import {postCookieCard} from '../actions/cookieCards'
 
 
-const CookieCardMaker = ({newCookieCard, updateCookieCardForm,postCookieCard, uid,history}) => {
+const CookieCardForm = ({newCookieCard, updateCookieCardForm, uid,history, editMode, handleSubmit}) => {
   const {recipe_name, recipe_steps, recipe_ingredients} = newCookieCard
 
   const handleChange = (e) =>{
@@ -12,13 +11,12 @@ const CookieCardMaker = ({newCookieCard, updateCookieCardForm,postCookieCard, ui
     updateCookieCardForm(name,value)
   }
 
-  const handleSubmit = (e) =>{
-    e.preventDefault()
-    postCookieCard({...newCookieCard, uid}, history)
-  }
   return (
     <div className="cookie-card">
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={e => {
+        e.preventDefault()
+        handleSubmit(newCookieCard)
+      }}>
         <section>
           <label htmlFor="recipe_name">Recipe name:</label>
               <input
@@ -58,7 +56,7 @@ const CookieCardMaker = ({newCookieCard, updateCookieCardForm,postCookieCard, ui
 
         <section>
               <input
-                value="Create Card! :)"
+                value={editMode ? "Update card" : "Create card"}
                 type="submit"
               />
         </section>
@@ -75,4 +73,4 @@ const mapState = state => {
   }
 }
 
-export default connect(mapState,{updateCookieCardForm, postCookieCard} )(CookieCardMaker);
+export default connect(mapState,{updateCookieCardForm})(CookieCardForm);

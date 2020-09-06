@@ -15,7 +15,7 @@ export default (state = initialState, action) => {
       return initialState
 
     case "EDIT_COOKIE_FORM":
-      return action.cookieCardObj
+      return action.card
     default:
       return state
   }
