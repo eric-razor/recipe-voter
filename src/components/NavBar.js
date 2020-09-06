@@ -4,7 +4,7 @@ import {
 } from "react-router-dom";
 import '../styles/NavBar.css'
 
-const NavList = () => {
+const NavBar = () => {
   return (
     <div className="NavBar">
         <div className="Nav-Routes">
@@ -28,5 +28,5 @@ const NavList = () => {
     </div>
   )
 }
-// this should b navbar
-export default NavList;
+
+export default NavBar;

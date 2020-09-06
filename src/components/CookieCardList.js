@@ -3,10 +3,10 @@ import CookieCard from './CookieCard';
 import '../styles/CookieCardList.css'
 import {Link} from 'react-router-dom'
 
-const CookieCardList = ({cookieCards}) => {
+const CookieCardList = ({cookieCards, handleEdit, handleDelete}) => {
   return (
-      <div className="cookie-cards-list">
-        {cookieCards.map(card =>
+    <div className="cookie-cards-list">
+      {cookieCards.map(card =>
           <div key={card.id}>
             <Link key={card.id} to={`/cookiecards/${card.id}`}>
               <CookieCard
@@ -15,7 +15,8 @@ const CookieCardList = ({cookieCards}) => {
                 recipe_steps={card.recipe_steps}
               />
             </Link>
-            <button> Edit </button>
+            <button onClick={handleEdit}> Edit </button>
+            <button onClick={handleDelete}> Delete </button>
           </div>
         )}
       </div>
