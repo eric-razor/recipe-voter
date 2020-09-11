@@ -1,4 +1,5 @@
 import React from 'react';
+import {connect} from 'react-redux'
 
 const CookieCard = (props) => {
   const {recipe_name, recipe_ingredients, recipe_steps} = props

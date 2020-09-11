@@ -1,4 +1,5 @@
 import {clearCookieCardForm} from './newCookieCardForm'
+
 // sync
 export const getCards = cookiecards => {
   return {

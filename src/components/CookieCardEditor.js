@@ -34,7 +34,7 @@ class CookieCardEditor extends Component {
     const {history, deleteCard, card} = this.props
     const cardId = card ? card.id : null
     return <>
-              <CookieCardForm editMode handleSubmit={this.handleSubmit} />
+              <CookieCardForm editMode history={history} handleSubmit={this.handleSubmit} />
               <br />
               <button onClick={() => deleteCard(cardId, history)}>Delete this card</button>
            </>
