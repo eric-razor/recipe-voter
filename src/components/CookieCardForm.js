@@ -6,17 +6,19 @@ import { updateCookieCardForm} from '../actions/newCookieCardForm'
 const CookieCardForm = ({newCookieCard, updateCookieCardForm, uid,history, editMode, handleSubmit}) => {
   const {recipe_name, recipe_steps, recipe_ingredients} = newCookieCard
 
-  const handleChange = (e) =>{
+  const handleChange = (e) => {
     const {name, value} = e.target
     updateCookieCardForm(name,value)
   }
 
+  const submit = (e) => {
+    e.preventDefault()
+    handleSubmit(newCookieCard)
+  }
+
   return (
     <div className="cookie-card">
-      <form onSubmit={e => {
-        e.preventDefault()
-        handleSubmit(newCookieCard)
-      }}>
+      <form onSubmit={submit}>
         <section>
           <label htmlFor="recipe_name">Recipe name:</label>
               <input

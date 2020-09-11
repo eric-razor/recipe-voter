@@ -13,15 +13,15 @@ class CookieCardListContainer extends Component{
     return(
       <div className="cookie-jar">
       cookies:
-      <CookieCardList cookieCards={this.props.cookieCards} />
+      <CookieCardList cards={this.props.cookieCards} />
       </div>
     )
   }
 }
 
-const mapState = state => {
+const mapState = ({cookieCards}) => {
   return {
-    cookieCards: state.cookieCards
+    cookieCards
   }
 }
 

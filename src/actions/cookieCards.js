@@ -1,23 +1,24 @@
 import {clearCookieCardForm} from './newCookieCardForm'
+
 // sync
-export const getCards = cookiecards => {
+export const getCards = cookieCards => {
   return {
     type: "GET_COOKIE_CARDS",
-    cookiecards
+    cookieCards
   }
 }
 
-export const addCard = cookiecard => {
+export const addCard = cookieCard => {
   return {
     type: "CREATE_COOKIE_CARD",
-    cookiecard
+    cookieCard
   }
 }
 
-export const editCard = cookiecard => {
+export const editCard = cookieCard => {
   return {
     type: "EDIT_COOKIE_CARD",
-    cookiecard
+    cookieCard
   }
 }
 
