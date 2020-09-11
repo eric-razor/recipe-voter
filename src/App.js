@@ -50,8 +50,7 @@ class App extends Component {
               console.log(cards);
               const card = cards.find(card => card.id === parseInt(props.match.params.id))
 
-              return <div> { card && loggedIn ? <CookieCard {...props} card={card}/> : null } </div>
-
+              return <div> { (card && !loggedIn) ?  <CookieCard {...props} card={card}/> : "null"} </div>
             }}/>
 
             <Route exact path='/cookiecards/:id/edit' render={(props) =>{

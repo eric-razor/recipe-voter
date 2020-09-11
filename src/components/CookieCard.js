@@ -1,13 +1,13 @@
 import React from 'react';
 import {connect} from 'react-redux'
 
-const CookieCard = (props) => {
-  const {recipe_name, recipe_ingredients, recipe_steps} = props
+const CookieCard = ({card}) => {
+  const {recipe_name, recipe_ingredients, recipe_steps} = card
   return (
     <div className="cookie-card">
-    <div className="title">{props.recipe_name}</div>
-    <div>{props.recipe_ingredients}</div>
-    <div>{ props.recipe_steps }</div>
+    <div className="title">{recipe_name}</div>
+    <div>{recipe_ingredients}</div>
+    <div>{ recipe_steps }</div>
     </div>
   )
 }
