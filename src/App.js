@@ -47,17 +47,15 @@ class App extends Component {
             <Route exact path="/cookiecards/new" component={CookieCardForm}/>
 
             <Route exact path='/cookiecards/:id' render={(props) =>{
-              console.log(cards);
               const card = cards.find(card => card.id === parseInt(props.match.params.id))
+              // return <div> { card && !loggedIn ? <CookieCard {...props} card={card} : "null"/>} </div>
+              return <div> <CookieCard card={card} {...props}/> </div>
 
-              return <div> { (card && !loggedIn) ?  <CookieCard {...props} card={card}/> : "null"} </div>
             }}/>
 
             <Route exact path='/cookiecards/:id/edit' render={(props) =>{
                 const card = cards.find(card => card.id === parseInt(props.match.params.id))
-                return <div> <CookieCard {...props}  recipe_name={card.recipe_name}
-                recipe_ingredients={card.recipe_ingredients}
-                recipe_steps={card.recipe_steps}/>/></div>
+                return <div> <CookieCard card={card} {...props}/></div>
             }}/>
 
           </Switch>
