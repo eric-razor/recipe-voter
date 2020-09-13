@@ -1,7 +1,6 @@
 import {getCookieCards} from "./cookieCards"
 import {resetSignupForm} from "./signupForm"
 import {clearLoginForm} from "./loginForm"
-// import history from "../history"
 
 // sync
 export const setCurrentUser = user => {
@@ -39,7 +38,6 @@ export const login = (credentials, history) => {
         history.push('/cookiecards')
       }
     })
-    .catch(console.log)
   }
 }
 
@@ -76,7 +74,6 @@ export const signup = (credentials,history) => {
         history.push('/')
       }
     })
-    .catch(console.log)
   }
 }
 
@@ -97,6 +94,5 @@ export const getCurrentUser = () => {
         dispatch(setCurrentUser(user))
       }
     })
-    .catch(console.log)
   }
 }

@@ -96,6 +96,7 @@ export const postCookieCard = (cookieCardObj, history) => {
 }
 
 export const editCookieCard = (cookieCardObj, history) => {
+  debugger
     return dispatch => {
       const cookieCardData = {
         card: {
@@ -119,6 +120,7 @@ export const editCookieCard = (cookieCardObj, history) => {
           alert(resp.error)
         } else {
           dispatch(updateCard(resp))
+          dispatch(clearCookieCardForm(resp))
           history.push(`/cookiecards/${resp.id}`)
         }
       })

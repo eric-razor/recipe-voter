@@ -3,7 +3,7 @@ import {connect} from 'react-redux'
 import { updateCookieCardForm} from '../actions/newCookieCardForm'
 
 
-const CookieCardForm = ({newCookieCard, updateCookieCardForm, uid,history, editMode, handleSubmit}) => {
+const CookieCardForm = ({newCookieCard, updateCookieCardForm, uid,history, handleSubmit, editMode}) => {
   const {recipe_name, recipe_steps, recipe_ingredients} = newCookieCard
 
   const handleChange = (e) => {
@@ -13,7 +13,7 @@ const CookieCardForm = ({newCookieCard, updateCookieCardForm, uid,history, editM
 
   const submit = (e) => {
     e.preventDefault()
-    handleSubmit(newCookieCard)
+    handleSubmit(newCookieCard, uid)
   }
 
   return (
@@ -58,7 +58,7 @@ const CookieCardForm = ({newCookieCard, updateCookieCardForm, uid,history, editM
 
         <section>
               <input
-                value={editMode ? "Update card" : "Create card"}
+                value={editMode ?  "Update card" : "Create card" }
                 type="submit"
               />
         </section>

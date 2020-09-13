@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import CookieCardForm from './CookieCardForm'
-import {updateCard, deleteCard} from '../action/cookieCards'
+import {updateCard, deleteCard, editCookieCard} from '../actions/cookieCards'
 import {editCookieCardFormData, clearCookieCardForm} from '../actions/newCookieCardForm'
 import {connect} from 'react-redux'
 
@@ -9,36 +9,32 @@ class CookieCardEditor extends Component {
   componentDidMount(){
     this.props.card && this.props.editCookieCardFormData(this.props.card)
   }
-
-  componentDidUpdate(prevProps){
-    this.props.card && !prevProps.card && this.props.editCookieCardFormData(this.props.card)
-  }
-
-  componentWillUnmount(){
-    this.props.clearCookieCardForm()
-  }
-
-  handleSubmit = (cardData) => {
+  //
+  // componentDidUpdate(prevProps){
+  //   this.props.card && !prevProps.card && this.props.editCookieCardFormData(this.props.card)
+  // }
+  //
+  // componentWillUnmount(){
+  //   this.props.clearCookieCardForm()
+  // }
+  handleSubmit = (cardData, uid) => {
     const {updateCard, card, history} = this.props
-    updateCard({
+    editCookieCard({
       ...cardData,
-      cardId: card.id
+      cardId: card.id,
+      uid
     }, history)
-  }
-
-  handleEdit(){
-    console.log("clicked");
   }
 
   render(){
     const {history, deleteCard, card} = this.props
     const cardId = card ? card.id : null
     return <>
-              <CookieCardForm editMode history={history} handleSubmit={this.handleSubmit} />
+              <CookieCardForm editMode handleSubmit={this.handleSubmit} />
               <br />
               <button onClick={() => deleteCard(cardId, history)}>Delete this card</button>
            </>
   }
 }
 
-export default connect(null, {updateCard, editCookieCardFormData, clearCookieCardForm, deleteCard})(CookieCardEditor)
+export default connect(null, {updateCard, editCookieCardFormData, editCookieCard, clearCookieCardForm, deleteCard})(CookieCardEditor)
