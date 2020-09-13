@@ -15,18 +15,15 @@ import Login from './components/Login'
 import Signup from './components/Signup'
 import CookieCardForm from './components/CookieCardForm'
 import CookieCard from './components/CookieCard'
+import CookieCardEditor from './components/CookieCardEditor'
+import CookieCardCreator from './components/CookieCardCreator'
 
 class App extends Component {
-
-// add check to see if user is logged in
-// load cards in componentDidMount
-// getcards action on mount
   componentDidMount(){
     this.props.getCurrentUser()
     this.props.getCookieCards()
     // return {this.props.loggedIn ? this.props.getCurrentUser() && this.props.getCookieCards : null}
   }
-
 
   render() {
       const {loggedIn, cards, user} = this.props
@@ -44,17 +41,16 @@ class App extends Component {
 
             <Route exact path="/cookiecards" component={CookieCardListContainer}/>
 
-            <Route exact path="/cookiecards/new" component={CookieCardForm}/>
+            <Route exact path="/cookiecards/new" component={CookieCardCreator}/>
 
             <Route exact path='/cookiecards/:id' render={(props) =>{
               const card = cards.find(card => card.id === parseInt(props.match.params.id))
               return <div> { card ? <CookieCard {...props} card={card}/> : "No card here!"} </div>
-
             }}/>
 
             <Route exact path='/cookiecards/:id/edit' render={(props) =>{
                 const card = cards.find(card => card.id === parseInt(props.match.params.id))
-                return <div> <CookieCard card={card} {...props}/></div>
+                return <div> <CookieCardEditor card={card} {...props}/></div>
             }}/>
 
           </Switch>
