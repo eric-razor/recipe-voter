@@ -20,7 +20,6 @@ class App extends Component {
   componentDidMount(){
     this.props.getCurrentUser()
     this.props.getCookieCards()
-    // return {this.props.loggedIn ? this.props.getCurrentUser() && this.props.getCookieCards : null}
   }
 
   render() {
