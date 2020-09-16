@@ -6,7 +6,7 @@ import {getCookieCards} from '../actions/cookieCards'
 class CookieCardListContainer extends Component{
 
   componentDidMount(){
-    this.props.getCookieCards()
+    this.props.getCookieCards() 
   }
 
   render(){

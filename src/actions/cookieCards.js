@@ -15,13 +15,6 @@ export const addCard = cookieCard => {
   }
 }
 
-export const editCard = cookieCard => {
-  return {
-    type: "EDIT_COOKIE_CARD",
-    cookieCard
-  }
-}
-
 export const updateCard = card => {
   return {
     type: "UPDATE_COOKIE_CARD",
@@ -96,7 +89,6 @@ export const postCookieCard = (cookieCardObj, history) => {
 }
 
 export const editCookieCard = (cookieCardObj, history) => {
-  debugger
     return dispatch => {
       const cookieCardData = {
         card: {
@@ -120,7 +112,6 @@ export const editCookieCard = (cookieCardObj, history) => {
           alert(resp.error)
         } else {
           dispatch(updateCard(resp))
-          dispatch(clearCookieCardForm(resp))
           history.push(`/cookiecards/${resp.id}`)
         }
       })

@@ -4,7 +4,7 @@ import {connect} from 'react-redux'
 import {postCookieCard} from '../actions/cookieCards'
 
 const CookieCardCreator =({history, postCookieCard}) => {
-  const handleSubmit = (newCookieCard, uid) => {
+  const handleSubmit = (newCookieCard, uid, handleSubmit) => {
     postCookieCard({
       ...newCookieCard,
       uid
