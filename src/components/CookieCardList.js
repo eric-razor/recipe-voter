@@ -1,9 +1,8 @@
 import React from 'react';
-import CookieCard from './CookieCard';
 import '../styles/CookieCardList.css'
 import {Link} from 'react-router-dom'
 
-const CookieCardList = ({cards, handleEdit, handleDelete}) => {
+const CookieCardList = ({cards}) => {
   return (
     <div className="cookie-cards-list">
       {cards && cards.map(card =>

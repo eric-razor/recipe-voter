@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import {
   Route,
   Switch,
-  NavLink,
 } from "react-router-dom";
 import './styles/App.css'
 import {connect} from 'react-redux'
@@ -13,7 +12,6 @@ import NavBar from './components/NavBar'
 import CookieCardListContainer from './containers/CookieCardListContainer'
 import Login from './components/Login'
 import Signup from './components/Signup'
-import CookieCardForm from './components/CookieCardForm'
 import CookieCard from './components/CookieCard'
 import CookieCardEditor from './components/CookieCardEditor'
 import CookieCardCreator from './components/CookieCardCreator'
@@ -31,7 +29,7 @@ class App extends Component {
       return (
         <div className="App">
         {loggedIn ? <Logout /> : null}
-        {this.props.user ? <strong> Welcome {this.props.user.name}</strong> : ""}
+        {user ? <strong> Welcome {user.name}</strong> : ""}
           <NavBar/>
           <Switch>
 
@@ -43,7 +41,7 @@ class App extends Component {
 
             <Route exact path="/cookiecards/new" component={CookieCardCreator}/>
 
-            <Route exact path='/cookiecards/:id' render={(props) =>{
+            <Route exact path='/cookiecards/:id' render={(props) => {
               const card = cards.find(card => card.id === parseInt(props.match.params.id))
               return <div> { card ? <CookieCard {...props} card={card}/> : "No card here!"} </div>
             }}/>
