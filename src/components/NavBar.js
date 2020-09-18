@@ -20,6 +20,9 @@ const NavBar = () => {
                 <NavLink to="/cookiecards"> My Cards </NavLink>
               </li>
               <li>
+                <NavLink to="/pantry"> Pantry </NavLink>
+              </li>
+              <li>
                 <NavLink to="/cookiecards/new"> Create cookie card  </NavLink>
               </li>
             </ul>

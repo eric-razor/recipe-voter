@@ -6,15 +6,17 @@ import {getCookieCards} from '../actions/cookieCards'
 class CookieCardListContainer extends Component{
 
   componentDidMount(){
-    this.props.getCookieCards() 
+    this.props.getCookieCards()
   }
 
   render(){
     return(
-      <div className="cookie-jar">
-      cookies:
-      <CookieCardList cards={this.props.cookieCards} />
-      </div>
+      <>
+        <div className="cookie-jar">
+        <h1> cookies: </h1>
+        <CookieCardList cards={this.props.cookieCards} />
+        </div>
+      </>
     )
   }
 }
