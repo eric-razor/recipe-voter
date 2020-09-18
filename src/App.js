@@ -10,6 +10,7 @@ import {getCookieCards} from './actions/cookieCards'
 import Logout from './components/Logout'
 import NavBar from './components/NavBar'
 import CookieCardListContainer from './containers/CookieCardListContainer'
+import PantryContainer from './containers/PantryContainer'
 import Login from './components/Login'
 import Signup from './components/Signup'
 import CookieCard from './components/CookieCard'
@@ -20,7 +21,6 @@ class App extends Component {
   componentDidMount(){
     this.props.getCurrentUser()
     this.props.getCookieCards()
-    // return {this.props.loggedIn ? this.props.getCurrentUser() && this.props.getCookieCards : null}
   }
 
   render() {
@@ -28,6 +28,7 @@ class App extends Component {
 
       return (
         <div className="App">
+
         {loggedIn ? <Logout /> : null}
         {user ? <strong> Welcome {user.name}</strong> : ""}
           <NavBar/>
@@ -36,6 +37,8 @@ class App extends Component {
             <Route path="/signup" component={Signup}/>
 
             <Route path="/login" component={Login}/>
+
+            <Route exact path="/pantry" component={PantryContainer} /> 
 
             <Route exact path="/cookiecards" component={CookieCardListContainer}/>
 
