@@ -6,7 +6,6 @@ import PantryInput from '../components/PantryInput'
 class PantryContainer extends Component {
 
   render(){
-    console.log("cardzzz: ",this.props.cookieCards);
     return(
       <div className="sort">
         <PantryInput />

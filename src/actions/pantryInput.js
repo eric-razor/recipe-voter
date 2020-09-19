@@ -1,6 +1,7 @@
-export const updatePantryInput = pantryInput => {
+export const updatePantryInput = (name,value) => {
+  const pantryInputData = {name,value}
   return {
     type: "UPDATE_PANTRY",
-    pantryInput
+    pantryInputData
   }
 }
