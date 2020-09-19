@@ -3,16 +3,15 @@ import {connect} from 'react-redux'
 import {updatePantryInput} from '../actions/pantryInput'
 
 const PantryInput = ({pantryInput, handleSubmit}) => {
-  const {item_name} = pantryInput
+
   const handleChange = (e) => {
     const {name, value} = e.target
-    updatePantryInput(name,value)
-    debugger
+    updatePantryInput(name, value)
   }
 
   const submit = (e) => {
     e.preventDefault()
-    handleSubmit(item_name)
+    handleSubmit(pantryInput)
   }
   return(
     <div className="pantry-input">
@@ -24,7 +23,7 @@ const PantryInput = ({pantryInput, handleSubmit}) => {
               id="item_name"
               name="item_name"
               type="text"
-              value={item_name}
+              value={pantryInput.item_name}
               onChange={handleChange}
               required
             />
@@ -45,7 +44,7 @@ const PantryInput = ({pantryInput, handleSubmit}) => {
 const mapState = state => {
   const uid = state.user ? state.user.id : ""
   return{
-    pantryInput: state.pantryInput,
+    pantryInput: state.pantryInput.item_name,
     uid
   }
 }
