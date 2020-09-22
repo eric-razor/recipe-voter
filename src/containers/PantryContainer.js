@@ -9,15 +9,16 @@ class PantryContainer extends Component {
     return(
       <div className="sort">
         <PantryInput />
-        <Pantry items={this.props.pantryItems} />
+        <Pantry items={this.props.items} />
       </div>
     )
   }
 }
 
-const mapState = ({pantryItems}) => {
+const mapState = (state) => {
   return {
-    pantryItems
+    items: state.pantryItems,
+    itemQuery: state.pantryInput
   }
 }
 

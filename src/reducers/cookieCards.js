@@ -5,9 +5,9 @@ export default (state=initialState, action) => {
     case "GET_COOKIE_CARDS":
       return action.cookieCards
     case "CREATE_COOKIE_CARD":
-      return state.concat(action.cookiecard)
+      return state.concat(action.cookieCard)
     case "UPDATE_COOKIE_CARD":
-      return state.map(card  => card.cardId === action.card.cardId ? action.card : card)
+      return state.map(card  => card.id === action.card.id ? action.card : card)
     case "DELETE_COOKIE_CARD":
       return state.filter(card => card.cardId === action.cardId ? false : true)
     default:

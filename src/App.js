@@ -38,7 +38,7 @@ class App extends Component {
 
             <Route path="/login" component={Login}/>
 
-            <Route exact path="/pantry" component={PantryContainer} /> 
+            <Route exact path="/pantry" component={PantryContainer} />
 
             <Route exact path="/cookiecards" component={CookieCardListContainer}/>
 
