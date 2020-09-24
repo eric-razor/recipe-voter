@@ -1,3 +1,4 @@
+import {addToPantry} from './pantry'
 // sync
 export const updatePantryInput = (name,value) => {
   const pantryInputData = {name,value}
@@ -8,21 +9,14 @@ export const updatePantryInput = (name,value) => {
   }
 }
 
-export const addToPantry = (item) => {
-  debugger
-  return {
-    type: "ADD_TO_PANTRY",
-    item
-  }
-}
-
 // async
 
-export const postPantryInput = (item) => {
+export const postPantryInput = (item, uid) => {
   return dispatch => {
     const pantryItem = {
-      item_name: {
-        item
+      item: {
+        item_name: item,
+        user_id: uid
       }
     }
     return fetch('http://localhost:3001/api/v1/pantry', {
@@ -31,12 +25,12 @@ export const postPantryInput = (item) => {
       headers: {
         "Content-Type":"application/json"
       },
-      body: JSON.stringify(item)
+      body: JSON.stringify(pantryItem)
     })
     .then(r => r.json())
     .then(resp => {
       if(resp.error){
-        alert(resp.error)
+        alert("Item already exists")
       } else {
         dispatch(addToPantry(resp))
       }

@@ -9,9 +9,6 @@ export default (state=initialState, action) => {
         ...state,
         [action.pantryInputData.name]: action.pantryInputData.value
       }
-      case "ADD_TO_PANTRY":
-        debugger
-        return state.concat(action.item)
     default:
       return state
   }

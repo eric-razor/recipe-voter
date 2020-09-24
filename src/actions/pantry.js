@@ -6,6 +6,13 @@ export const getPantryItems = pantryItems => {
   }
 }
 
+export const addToPantry = (item) => {
+  return {
+    type: "ADD_TO_PANTRY",
+    item
+  }
+}
+
 // async
 export const getPantry = () => {
   return dispatch => {
