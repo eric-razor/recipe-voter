@@ -16,5 +16,4 @@ const CookieCardList = ({cards}) => {
     )
   }
 
-
 export default CookieCardList

@@ -1,16 +1,17 @@
 import React from 'react';
 import {connect} from 'react-redux'
-import {postPantryInput} from '../actions/pantryInput'
+import {postPantryInput,updatePantryInput} from '../actions/pantryInput'
 
-const PantryInput = ({pantryInput, handleSubmit}) => {
+const PantryInput = ({pantryInput, updatePantryInput, handleSubmit, postPantryInput}) => {
 
   const handleChange = (e) => {
     const {name, value} = e.target
-    postPantryInput(name, value)
+    updatePantryInput(name, value)
   }
 
   const submit = (e) => {
     e.preventDefault()
+    postPantryInput(pantryInput)
   }
 
   return(
@@ -49,4 +50,4 @@ const mapState = state => {
   }
 }
 
-export default connect(mapState,{postPantryInput})(PantryInput);
+export default connect(mapState,{postPantryInput,updatePantryInput})(PantryInput);
