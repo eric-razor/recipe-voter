@@ -1,13 +1,15 @@
 .Nav-Route-List {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
+  padding: 30px 10%;
   list-style: none;
+  cursor: pointer;
 }
 
-a:hover {
-  color:red;
+.Nav-Route-List li a {
+  transition: all 0.3s ease 0s;
 }
 
-a:active{
-  color: orange;
+.Nav-Route-List li a:hover {
+  color: #933709
 }

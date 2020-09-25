@@ -59,5 +59,5 @@ const mapState = state => {
     loginFormData: state.loginForm
   }
 }
-// flex direction for sections
+
 export default connect(mapState, {updateLoginForm, login})(Login)

@@ -1,6 +1,5 @@
 import {clearCookieCardForm} from './newCookieCardForm'
 
-// sync
 export const getCards = cookieCards => {
   return {
     type: "GET_COOKIE_CARDS",
@@ -35,7 +34,6 @@ export const deleteCard = cardId => {
   }
 }
 
-// async
 export const getCookieCards = () => {
   return dispatch => {
     return fetch('http://localhost:3001/api/v1/cookiecards', {
@@ -66,7 +64,6 @@ export const postCookieCard = (cookieCardObj, history) => {
         user_id: cookieCardObj.uid
       }
     }
-
     return fetch('http://localhost:3001/api/v1/cookiecards', {
       credentials:"include",
       method:"POST",
@@ -97,7 +94,6 @@ export const editCookieCard = (cookieCardObj, history) => {
           recipe_ingredients: cookieCardObj.recipe_ingredients
         }
       }
-
       return fetch(`http://localhost:3001/api/v1/cookiecards/${cookieCardObj.cardId}`, {
         credentials:"include",
         method:"PATCH",

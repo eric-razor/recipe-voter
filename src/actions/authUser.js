@@ -2,7 +2,6 @@ import {getCookieCards} from "./cookieCards"
 import {resetSignupForm} from "./signupForm"
 import {clearLoginForm} from "./loginForm"
 
-// sync
 export const setCurrentUser = user => {
   return {
     type: "SET_CURRENT_USER",
@@ -16,7 +15,6 @@ export const clearCurrentUser = () => {
   }
 }
 
-// async
 export const login = (credentials, history) => {
   return dispatch => {
     return fetch("http://localhost:3001/api/v1/login", {

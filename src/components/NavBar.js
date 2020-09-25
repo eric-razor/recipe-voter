@@ -10,6 +10,7 @@ const NavBar = () => {
         <div className="Nav-Routes">
           <nav>
             <ul className="Nav-Route-List">
+
               <li>
                 <NavLink to="/login">Log In </NavLink>
               </li>

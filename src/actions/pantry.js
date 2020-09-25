@@ -1,8 +1,8 @@
-// sync
-export const getPantryItems = pantryItems => {
+export const getPantryItems = items => {
+  debugger
   return {
     type: "GET_PANTRY",
-    pantryItems
+    items
   }
 }
 
@@ -13,7 +13,6 @@ export const addToPantry = (item) => {
   }
 }
 
-// async
 export const getPantry = () => {
   return dispatch => {
     return fetch('http://localhost:3001/api/v1/pantry', {
