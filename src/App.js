@@ -7,6 +7,7 @@ import './styles/App.css'
 import {connect} from 'react-redux'
 import {getCurrentUser} from './actions/authUser'
 import {getCookieCards} from './actions/cookieCards'
+import {getPantry} from './actions/pantry'
 import Logout from './components/Logout'
 import NavBar from './components/NavBar'
 import CookieCardListContainer from './containers/CookieCardListContainer'
@@ -17,10 +18,12 @@ import CookieCard from './components/CookieCard'
 import CookieCardEditor from './components/CookieCardEditor'
 import CookieCardCreator from './components/CookieCardCreator'
 
+
 class App extends Component {
   componentDidMount(){
     this.props.getCurrentUser()
     this.props.getCookieCards()
+    this.props.getPantry()
   }
 
   render() {
@@ -28,9 +31,12 @@ class App extends Component {
 
       return (
         <div className="App">
-
-        {loggedIn ? <Logout /> : null}
-        {user ? <strong> Welcome {user.name}</strong> : ""}
+          <div className="logout-button">
+            {loggedIn ? <Logout /> : null}
+          </div>
+          <div className="greeting">
+            {user ? <strong> Welcome {user.name}</strong> : ""}
+          </div>
           <NavBar/>
           <Switch>
 
@@ -53,9 +59,7 @@ class App extends Component {
                 const card = cards.find(card => card.id === parseInt(props.match.params.id))
                 return <div> <CookieCardEditor card={card} {...props}/></div>
             }}/>
-
           </Switch>
-
         </div>
       );
     }
@@ -65,8 +69,8 @@ class App extends Component {
     return {
       loggedIn: !!state.user,
       user: state.user,
-      cards: state.cookieCards
+      cards: state.cookieCards,
     }
   }
 
-export default connect(mapState, {getCurrentUser,getCookieCards})(App)
+export default connect(mapState, {getCurrentUser,getCookieCards, getPantry})(App)

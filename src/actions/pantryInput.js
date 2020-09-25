@@ -1,5 +1,5 @@
 import {addToPantry} from './pantry'
-// sync
+
 export const updatePantryInput = (name,value) => {
   const pantryInputData = {name,value}
   console.log(pantryInputData);
@@ -8,8 +8,6 @@ export const updatePantryInput = (name,value) => {
     pantryInputData
   }
 }
-
-// async
 
 export const postPantryInput = (item, uid) => {
   return dispatch => {

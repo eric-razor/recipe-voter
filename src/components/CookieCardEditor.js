@@ -9,11 +9,11 @@ class CookieCardEditor extends Component {
   componentDidMount(){
     this.props.card && this.props.editCookieCardFormData(this.props.card)
   }
-  //
+
   componentDidUpdate(prevProps){
     this.props.card && !prevProps.card && this.props.editCookieCardFormData(this.props.card)
   }
-  //
+  
   componentWillUnmount(){
     this.props.clearCookieCardForm()
   }

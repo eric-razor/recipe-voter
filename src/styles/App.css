@@ -1,13 +1,8 @@
 :root {
-  font-size: 16px;
-  font-family: helvetica;
+  font-size: 20px;
+  font-family: "Montserrat", "sans-serif";
 }
 
 * {
-  text-align: left;
-  background-color: white;
+  background-color: gainsboro;
 }
-
-/* body, input, a {
-  color: white;
-} */

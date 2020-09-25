@@ -1,4 +1,3 @@
-// sync
 export const updateCookieCardForm = (name,value) => {
   const cookieCardData = {name, value}
   return {
