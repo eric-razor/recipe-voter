@@ -1,13 +1,17 @@
 .submit-item-btn {
   background-color: #676767 ;
-  border: 2px solid;
+  border: 1px solid;
   color: inherit;
   padding: 10px;
   margin: 10px;
   cursor: pointer;
 }
 
-.logout-btn {
-  padding: 10px 10px;
-  font-size: 16px;
+.item-name {
+  padding: 10px 15px;
+  border: 1px solid #50BFE6;
+  margin: 10px 0;
+  background-color: inherit;
+  color: inherit;
+  box-sizing: border-box;
 }

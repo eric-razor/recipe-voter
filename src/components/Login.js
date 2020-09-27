@@ -25,8 +25,9 @@ const Login = ({loginFormData, updateLoginForm,login, history}) => {
       <form name="Login-form" onSubmit={handleSubmit}>
 
         <section className="input-section">
-          <label htmlFor="email">Email</label>
+          <label htmlFor="email">Email </label>
               <input
+                className="login-input"
                 id="email"
                 value={loginFormData.email}
                 name="email"
@@ -37,8 +38,9 @@ const Login = ({loginFormData, updateLoginForm,login, history}) => {
         </section>
 
         <section className="input-section">
-          <label htmlFor="password"> Password</label>
+          <label htmlFor="password">Password </label>
               <input
+                className="login-input"
                 id="password"
                 type="password"
                 value={loginFormData.password}
@@ -48,7 +50,7 @@ const Login = ({loginFormData, updateLoginForm,login, history}) => {
               />
         </section>
 
-        <input value="Log in" type="submit"/>
+        <input className="login-btn" value="Log in" type="submit"/>
       </form>
     </div>
   )

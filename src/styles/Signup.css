@@ -1,25 +1,12 @@
-.card-form {
-  background-color: inherit;
-}
-
-.card-section {
-  display: flex;
-}
-
-.card-input {
+.signup-input{
   border: 1px solid #50BFE6;
-  flex-grow: 1;
   padding: 10px 15px;
-  margin: 4px;
+  margin: 10px 0;
   background-color: inherit;
   color: inherit;
 }
 
-.card-label {
-  width: 110px;
-}
-
-.create-card-btn {
+.signup-btn{
   background-color: inherit ;
   border: 1px solid;
   color: white;
