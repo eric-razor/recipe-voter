@@ -21,8 +21,9 @@ const PantryInput = ({pantryInput, updatePantryInput, handleSubmit, postPantryIn
 
     <form onSubmit={submit}>
       <section>
-        <label htmlFor="item_name">Item name:</label>
+        <label htmlFor="item_name">Item: </label>
             <input
+              className="item-name"
               id="item_name"
               name="item_name"
               type="text"
