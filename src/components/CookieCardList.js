@@ -6,7 +6,7 @@ const CookieCardList = ({cards}) => {
   return (
     <div className="cookie-cards-list">
       {cards && cards.map(card =>
-          <div key={card.id}>
+          <div id="card" key={card.id}>
             <Link key={card.id} to={`/cookiecards/${card.id}`}>
             {card.recipe_name}
             </Link>

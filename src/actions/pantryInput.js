@@ -2,7 +2,6 @@ import {addToPantry} from './pantry'
 
 export const updatePantryInput = (name,value) => {
   const pantryInputData = {name,value}
-  console.log(pantryInputData);
   return {
     type: "UPDATE_PANTRY_INPUT",
     pantryInputData

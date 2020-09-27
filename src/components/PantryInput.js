@@ -1,6 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux'
 import {postPantryInput,updatePantryInput} from '../actions/pantryInput'
+import '../styles/PantryInput.css'
 
 const PantryInput = ({pantryInput, updatePantryInput, handleSubmit, postPantryInput, uid}) => {
 
@@ -33,6 +34,8 @@ const PantryInput = ({pantryInput, updatePantryInput, handleSubmit, postPantryIn
 
       <section>
             <input
+              className="submit-item-btn"
+              id="submit"
               value="Add item"
               type="submit"
             />

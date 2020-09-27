@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux'
 import { updateCookieCardForm} from '../actions/newCookieCardForm'
-
+import '../styles/CookieCardForm.css'
 
 const CookieCardForm = ({newCookieCard, updateCookieCardForm, uid,history, handleSubmit, editMode}) => {
   const {recipe_name, recipe_steps, recipe_ingredients} = newCookieCard
@@ -18,10 +18,11 @@ const CookieCardForm = ({newCookieCard, updateCookieCardForm, uid,history, handl
 
   return (
     <div className="cookie-card">
-      <form onSubmit={submit}>
-        <section>
-          <label htmlFor="recipe_name">Recipe name:</label>
+      <form className="card-form" onSubmit={submit}>
+        <section className="card-section">
+          <label className="card-label" htmlFor="recipe_name">Recipe name:</label>
               <input
+                className="card-input"
                 id="recipe_name"
                 name="recipe_name"
                 type="text"
@@ -31,9 +32,10 @@ const CookieCardForm = ({newCookieCard, updateCookieCardForm, uid,history, handl
               />
         </section>
 
-        <section>
-          <label htmlFor="recipe_ingredients"> Recipe ingredients:</label>
+        <section className="card-section">
+          <label className="card-label" htmlFor="recipe_ingredients"> Recipe ingredients:</label>
               <textarea
+                className="card-input"
                 id="recipe_ingredients"
                 rows="5"
                 cols="33"
@@ -44,9 +46,10 @@ const CookieCardForm = ({newCookieCard, updateCookieCardForm, uid,history, handl
               />
         </section>
 
-        <section>
-          <label htmlFor="recipe_steps">Recipe steps:</label>
+        <section className="card-section">
+          <label className="card-label" htmlFor="recipe_steps">Recipe steps:</label>
               <textarea
+                className="card-input"
                 id="recipe_steps"
                 rows="5"
                 cols="33"
@@ -58,6 +61,7 @@ const CookieCardForm = ({newCookieCard, updateCookieCardForm, uid,history, handl
 
         <section>
               <input
+                className="create-card-btn"
                 value={editMode ?  "Update card" : "Create card" }
                 type="submit"
               />
