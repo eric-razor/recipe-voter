@@ -1,5 +1,12 @@
-.cookie-cards-list div {
+.cookie-cards-list a {
   display: flex;
-  padding: 30px;
   border-style: solid;
+  border-color: #50BFE6;
+  border-radius: 2px;
+}
+
+.card-link {
+  margin: 10px;
+  display: block;
+  cursor: pointer;
 }
