@@ -6,11 +6,9 @@ const CookieCardList = ({cards}) => {
   return (
     <div className="cookie-cards-list">
       {cards && cards.map(card =>
-          <div id="card" key={card.id}>
-            <Link key={card.id} to={`/cookiecards/${card.id}`}>
-            {card.recipe_name}
-            </Link>
-          </div>
+          <Link className="card-link" key={card.id} to={`/cookiecards/${card.id}`}>
+          {card.recipe_name}
+          </Link>
         )}
       </div>
     )

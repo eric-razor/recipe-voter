@@ -3,6 +3,7 @@ import CookieCardForm from './CookieCardForm'
 import {editCookieCard, deleteCookieCard} from '../actions/cookieCards'
 import {editCookieCardFormData, clearCookieCardForm} from '../actions/newCookieCardForm'
 import {connect} from 'react-redux'
+import '../styles/CookieCardEditor.css'
 
 
 class CookieCardEditor extends Component {
@@ -13,7 +14,7 @@ class CookieCardEditor extends Component {
   componentDidUpdate(prevProps){
     this.props.card && !prevProps.card && this.props.editCookieCardFormData(this.props.card)
   }
-  
+
   componentWillUnmount(){
     this.props.clearCookieCardForm()
   }
@@ -31,7 +32,7 @@ class CookieCardEditor extends Component {
     return <>
               <CookieCardForm editMode handleSubmit={this.handleSubmit} />
               <br />
-              <button onClick={() => deleteCookieCard(cardId, history)}>Delete this card</button>
+              <button className="delete-card-btn" onClick={() => deleteCookieCard(cardId, history)}>Delete this card</button>
            </>
   }
 }
