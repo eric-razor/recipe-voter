@@ -69,7 +69,7 @@ export const signup = (credentials,history) => {
       } else {
         dispatch(setCurrentUser(user))
         dispatch(resetSignupForm())
-        history.push('/')
+        history.push('/cookiecards')
       }
     })
   }

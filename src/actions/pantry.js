@@ -1,5 +1,4 @@
 export const getPantryItems = items => {
-  debugger
   return {
     type: "GET_PANTRY",
     items

@@ -10,13 +10,6 @@ const NavBar = () => {
         <div className="Nav-Routes">
           <nav>
             <ul className="Nav-Route-List">
-
-              <li>
-                <NavLink to="/login">Log In </NavLink>
-              </li>
-              <li>
-                <NavLink to="/signup">Sign Up</NavLink>
-              </li>
               <li>
                 <NavLink to="/cookiecards"> My Cards </NavLink>
               </li>

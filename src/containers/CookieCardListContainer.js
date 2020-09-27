@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import CookieCardList from '../components/CookieCardList'
 import {getCookieCards} from '../actions/cookieCards'
+import '../styles/CookieCardListContainer.css'
 
 class CookieCardListContainer extends Component{
 
@@ -13,8 +14,10 @@ class CookieCardListContainer extends Component{
     return(
       <>
         <div className="cookie-jar">
-        <h1> cookies: </h1>
-        <CookieCardList cards={this.props.cookieCards} />
+          <div className="cookie">
+            <h1> Cookie Cards </h1>
+          </div>
+          <CookieCardList cards={this.props.cookieCards} />
         </div>
       </>
     )

@@ -1,0 +1,5 @@
+.cookie-cards-list div {
+  display: flex;
+  padding: 30px;
+  border-style: solid;
+}

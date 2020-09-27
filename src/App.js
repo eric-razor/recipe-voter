@@ -17,6 +17,7 @@ import Signup from './components/Signup'
 import CookieCard from './components/CookieCard'
 import CookieCardEditor from './components/CookieCardEditor'
 import CookieCardCreator from './components/CookieCardCreator'
+import Home from './components/Home'
 
 
 class App extends Component {
@@ -31,18 +32,15 @@ class App extends Component {
 
       return (
         <div className="App">
-          <div className="logout-button">
-            {loggedIn ? <Logout /> : null}
-          </div>
           <div className="greeting">
             {user ? <strong> Welcome {user.name}</strong> : ""}
           </div>
-          <NavBar/>
+          <NavBar />
           <Switch>
 
-            <Route path="/signup" component={Signup}/>
+            <Route exact path="/signup" component={Signup}/>
 
-            <Route path="/login" component={Login}/>
+            <Route exact path="/login" component={Login}/>
 
             <Route exact path="/pantry" component={PantryContainer} />
 
@@ -60,6 +58,10 @@ class App extends Component {
                 return <div> <CookieCardEditor card={card} {...props}/></div>
             }}/>
           </Switch>
+
+          <div className="logout-button-position">
+            {loggedIn ? <Logout /> : <Home/>}
+          </div>
         </div>
       );
     }
