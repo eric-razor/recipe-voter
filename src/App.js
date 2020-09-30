@@ -19,7 +19,6 @@ import CookieCardEditor from './components/CookieCardEditor'
 import CookieCardCreator from './components/CookieCardCreator'
 import Home from './components/Home'
 
-
 class App extends Component {
   componentDidMount(){
     this.props.getCurrentUser()

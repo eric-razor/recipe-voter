@@ -9,6 +9,8 @@ export default (state=initialState, action) => {
         ...state,
         [action.pantryInputData.name]: action.pantryInputData.value
       }
+    case "CLEAR_PANTRY_INPUT":
+      return initialState
     default:
       return state
   }

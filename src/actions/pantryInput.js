@@ -7,6 +7,11 @@ export const updatePantryInput = (name,value) => {
     pantryInputData
   }
 }
+export const clearPantryInput = () => {
+  return {
+    type: "CLEAR_PANTRY_INPUT"
+  }
+}
 
 export const postPantryInput = (item, uid) => {
   return dispatch => {
@@ -30,6 +35,7 @@ export const postPantryInput = (item, uid) => {
         alert("Item already exists")
       } else {
         dispatch(addToPantry(resp))
+        dispatch(clearPantryInput())
       }
     })
   }
