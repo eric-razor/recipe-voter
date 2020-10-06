@@ -13,7 +13,7 @@ export const clearPantryInput = () => {
   }
 }
 
-export const postPantryInput = (item, uid) => {
+export const postPantryInput = (item, uid, history) => {
   return dispatch => {
     const pantryItem = {
       item: {
@@ -36,6 +36,7 @@ export const postPantryInput = (item, uid) => {
       } else {
         dispatch(addToPantry(resp))
         dispatch(clearPantryInput())
+        history.push("/pantry")
       }
     })
   }
