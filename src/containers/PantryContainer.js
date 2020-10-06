@@ -8,7 +8,7 @@ class PantryContainer extends Component {
   render(){
     return(
       <div className="sort">
-        <PantryInput />
+        <PantryInput history={this.props.history}/>
         <Pantry items={this.props.items} />
       </div>
     )

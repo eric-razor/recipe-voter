@@ -3,7 +3,7 @@ import {connect} from 'react-redux'
 import {postPantryInput,updatePantryInput} from '../actions/pantryInput'
 import '../styles/PantryInput.css'
 
-const PantryInput = ({pantryInput, updatePantryInput, handleSubmit, postPantryInput, uid}) => {
+const PantryInput = ({pantryInput, updatePantryInput, handleSubmit, postPantryInput, uid, history}) => {
 
   const handleChange = (e) => {
     const {name, value} = e.target
@@ -13,7 +13,7 @@ const PantryInput = ({pantryInput, updatePantryInput, handleSubmit, postPantryIn
   const submit = (e) => {
     e.preventDefault()
 
-    postPantryInput(pantryInput,uid)
+    postPantryInput(pantryInput,uid, history)
   }
 
   return(
