@@ -27,7 +27,7 @@ const PantryInput = ({pantryInput, updatePantryInput, handleSubmit, postPantryIn
               id="item_name"
               name="item_name"
               type="text"
-              value={pantryInput.item_name}
+              value={pantryInput}
               onChange={handleChange}
               required
             />
