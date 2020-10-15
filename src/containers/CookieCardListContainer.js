@@ -6,8 +6,25 @@ import '../styles/CookieCardListContainer.css'
 
 class CookieCardListContainer extends Component{
 
+  constructor(){
+    super()
+    this.state = {
+      upvote: 0,
+      downvote: 0
+    }
+  }
+
+
   componentDidMount(){
     this.props.getCookieCards()
+  }
+
+  upvote(){
+    console.log("voted up");
+  }
+
+  downvote(){
+    console.log("down voted");
   }
 
   render(){
