@@ -1,6 +1,6 @@
 import React from 'react';
 import '../styles/Pantry.css'
-import { Link } from 'react-router-dom'
+// import { Link } from 'react-router-dom'
 import {deletePantryItem} from '../actions/pantry'
 
 const Pantry = ({items}) => {
